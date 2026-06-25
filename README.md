@@ -1,5 +1,10 @@
 # Hola, soy Nicolas Diaz
 
+## Links publicos
+
+- **Portfolio:** https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/
+- **Presentacion de Sudaka:** https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/
+
 **AI Solutions Developer en GOUT | Global Outsourcing**
 
 Trabajo en automatizacion operativa, datos, reporting e inteligencia artificial aplicada a procesos reales de negocio.

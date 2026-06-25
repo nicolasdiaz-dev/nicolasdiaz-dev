@@ -21,6 +21,7 @@ Este perfil resume mi trabajo principal dentro de **nicolasdiaz-dev**, donde cen
 - Implemento procesos programados con GitHub Actions, Render, Vercel, Cloud Run y Supabase.
 - Trabajo con cuentas de servicio, dependencias de dominio y permisos controlados para integraciones productivas.
 - Uso OpenClaw como agente operativo para asistencia, monitoreo, reporting y ejecucion de flujos seguros.
+- Mantengo una presentacion publica de Sudaka, el asistente operativo de GOUT, dentro del mismo GitHub Pages del portfolio: `/sudaka/`.
 
 ---
 

@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudaka — Asistente operativo de GOUT</title>
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-soft:#0f1620;
+    --card:rgba(255,255,255,.04);
+    --card-border:rgba(255,255,255,.09);
+    --green:#00d9a3;
+    --green-deep:#00a878;
+    --blue:#4ea1ff;
+    --orange:#f2a25c;
+    --red:#ff6b6b;
+    --text:#eef3f7;
+    --muted:#9fb0bf;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+
+  /* ---------- Background mesh ---------- */
+  .mesh{
+    position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(ellipse 800px 500px at 15% -10%, rgba(0,217,163,.18), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 90% 10%, rgba(78,161,255,.14), transparent 60%),
+      radial-gradient(ellipse 900px 700px at 50% 110%, rgba(0,168,120,.12), transparent 60%),
+      var(--bg);
+  }
+
+  section{
+    max-width:1080px;
+    margin:0 auto;
+    padding:90px 28px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    max-width:1080px;
+    margin:0 auto;
+    padding:40px 28px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:999px;
+    padding:8px 18px;
+    font-size:13px;
+    color:var(--green);
+    letter-spacing:.4px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:28px;
+  }
+  .badge .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 12px var(--green);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1; transform:scale(1);}
+    50%{opacity:.5; transform:scale(1.4);}
+  }
+  .hero h1{
+    font-size:clamp(36px, 7vw, 68px);
+    font-weight:800;
+    line-height:1.08;
+    letter-spacing:-1.5px;
+    max-width:780px;
+  }
+  .hero h1 .accent{
+    background:linear-gradient(100deg, var(--green) 10%, var(--blue) 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p{
+    margin-top:24px;
+    font-size:clamp(16px, 2.4vw, 20px);
+    color:var(--muted);
+    max-width:640px;
+  }
+  .hero .stats{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(140px,1fr));
+    gap:16px;
+    margin-top:48px;
+    width:100%;
+    max-width:680px;
+  }
+  .stat{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:16px;
+    padding:20px;
+    backdrop-filter:blur(6px);
+  }
+  .stat strong{
+    display:block;
+    font-size:28px;
+    font-weight:800;
+    background:linear-gradient(100deg, var(--green), var(--blue));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .stat span{font-size:12.5px; color:var(--muted);}
+  .scroll-hint{
+    margin-top:64px;
+    font-size:13px;
+    color:var(--muted);
+    display:flex; align-items:center; gap:10px;
+  }
+  .scroll-hint .arrow{animation:bounce 1.6s infinite;}
+  @keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+
+  /* ---------- Section heads ---------- */
+  .eyebrow{
+    color:var(--green);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  h2{
+    font-size:clamp(28px, 4.5vw, 42px);
+    font-weight:800;
+    letter-spacing:-1px;
+    max-width:760px;
+  }
+  .lead{
+    margin-top:16px;
+    font-size:17px;
+    color:var(--muted);
+    max-width:680px;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  /* ---------- Quote / self-intro ---------- */
+  .quote{
+    margin-top:56px;
+    border-left:3px solid var(--green);
+    padding:8px 0 8px 28px;
+    font-size:clamp(18px,2.6vw,24px);
+    font-weight:600;
+    color:var(--text);
+    max-width:760px;
+  }
+  .quote span{color:var(--muted); font-weight:400; font-size:15px; display:block; margin-top:10px;}
+
+  /* ---------- Identity panel ---------- */
+  .identity{
+    margin-top:48px;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+  .identity-item{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:16px;
+    padding:20px;
+  }
+  .identity-item small{
+    display:block;
+    color:var(--green);
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:7px;
+  }
+  .identity-item strong{display:block; font-size:17px; line-height:1.35;}
+  .identity-item p{color:var(--muted); font-size:13px; margin-top:5px;}
+
+  /* ---------- Cards grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:18px;
+    margin-top:44px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:26px;
+    backdrop-filter:blur(6px);
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(0,217,163,.4);
+    background:rgba(255,255,255,.06);
+  }
+  .card .icon{
+    font-size:30px;
+    display:inline-block;
+    margin-bottom:16px;
+    filter:drop-shadow(0 0 14px rgba(0,217,163,.35));
+  }
+  .card h3{font-size:17px; font-weight:700; margin-bottom:8px;}
+  .card p{font-size:14px; color:var(--muted);}
+
+  /* ---------- Timeline (rutinas) ---------- */
+  .timeline{
+    margin-top:48px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .tl-item{
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:22px;
+    position:relative;
+    padding-bottom:38px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    width:14px; height:14px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 6px rgba(0,217,163,.12);
+    margin-top:6px;
+    position:relative; z-index:1;
+  }
+  .tl-item:not(:last-child)::before{
+    content:"";
+    position:absolute;
+    left:6px; top:24px; bottom:-14px;
+    width:2px;
+    background:linear-gradient(var(--green-deep), transparent);
+    opacity:.35;
+  }
+  .tl-content h3{font-size:18px; font-weight:700; margin-bottom:6px;}
+  .tl-content p{color:var(--muted); font-size:14.5px;}
+  .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-size:11.5px; font-weight:700; letter-spacing:.3px;
+    padding:5px 12px; border-radius:999px;
+    background:rgba(0,217,163,.12); color:var(--green);
+    border:1px solid rgba(0,217,163,.25);
+  }
+
+  /* ---------- Chat examples ---------- */
+  .chat{
+    margin-top:44px;
+    display:flex; flex-direction:column; gap:14px;
+    max-width:640px;
+  }
+  .bubble{
+    padding:14px 18px;
+    border-radius:16px;
+    font-size:14.5px;
+    max-width:80%;
+  }
+  .bubble.user{
+    align-self:flex-end;
+    background:linear-gradient(120deg, var(--green-deep), var(--green));
+    color:#06251c;
+    font-weight:600;
+    border-bottom-right-radius:4px;
+  }
+  .bubble.bot{
+    align-self:flex-start;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    color:var(--text);
+    border-bottom-left-radius:4px;
+  }
+  .bubble.bot b{color:var(--green);}
+
+  /* ---------- Future / roadmap ---------- */
+  .future-card{
+    background:linear-gradient(160deg, rgba(78,161,255,.08), rgba(255,255,255,.02));
+    border:1px dashed rgba(78,161,255,.35);
+  }
+  .future-card:hover{border-color:rgba(78,161,255,.6);}
+  .future-card .icon{filter:drop-shadow(0 0 14px rgba(78,161,255,.4));}
+  .pill-soon{
+    display:inline-block;
+    font-size:10.5px; font-weight:800; letter-spacing:.5px;
+    text-transform:uppercase;
+    color:var(--blue);
+    background:rgba(78,161,255,.12);
+    border:1px solid rgba(78,161,255,.3);
+    border-radius:999px;
+    padding:4px 10px;
+    margin-bottom:14px;
+  }
+
+  /* ---------- Closing ---------- */
+  .closing{
+    text-align:center;
+    padding:120px 28px;
+  }
+  .closing h2{
+    margin:0 auto;
+    max-width:760px;
+  }
+  .closing .lead{margin-left:auto; margin-right:auto;}
+  .signature{
+    margin-top:54px;
+    display:inline-flex; flex-direction:column; align-items:center; gap:6px;
+  }
+  .signature .name{
+    font-size:26px; font-weight:800;
+    background:linear-gradient(100deg, var(--green), var(--blue));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .signature .role{font-size:13px; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;}
+
+  footer{
+    text-align:center;
+    padding:40px 28px 60px;
+    font-size:12.5px;
+    color:var(--muted);
+    border-top:1px solid var(--card-border);
+  }
+
+  @media (max-width:640px){
+    .hero .stats{grid-template-columns:1fr;}
+    .identity{grid-template-columns:1fr;}
+    section{padding:64px 22px;}
+  }
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span class="dot"></span> En línea ahora · Operando para GOUT</div>
+  <h1>Hola, soy <span class="accent">Sudaka</span>.<br>El asistente que mantiene a GOUT en movimiento.</h1>
+  <p>Vivo en la nube, hablo por Telegram y mi trabajo es simple: convertir pedidos, datos, correos y agenda en acciones concretas — todos los días, sin pausas.</p>
+  <div class="stats">
+    <div class="stat"><strong>24/7</strong><span>Disponible por Telegram para pedidos, reportes y consultas</span></div>
+    <div class="stat"><strong>+12</strong><span>Rutinas activas entre campañas, pautas, Gmail, Calendar, Drive y GitHub</span></div>
+    <div class="stat"><strong>8</strong><span>Conexiones operativas en una sola conversación</span></div>
+  </div>
+  <div class="scroll-hint"><span class="arrow">↓</span> Conocé en qué puedo ayudar a GOUT</div>
+</section>
+
+<!-- QUIEN SOY -->
+<section class="reveal">
+  <div class="eyebrow">Quién soy</div>
+  <h2>No soy una plataforma más. Soy la capa que conecta las que ya usás.</h2>
+  <p class="lead">Trabajo como un puente entre Nicolás y las herramientas del día a día de GOUT. Interpreto pedidos en lenguaje natural — por texto o por audio —, consulto las fuentes conectadas, ejecuto la acción y respondo por el mismo canal con información clara y lista para compartir.</p>
+  <div class="identity">
+    <div class="identity-item">
+      <small>Identidad</small>
+      <strong>Sudaka · Asistente operativo de GOUT Argentina</strong>
+      <p>Una identidad digital creada para acompañar a Nicolás Díaz y al equipo en la operación diaria.</p>
+    </div>
+    <div class="identity-item">
+      <small>Dónde estoy</small>
+      <strong>En la nube, sobre infraestructura Oracle Linux</strong>
+      <p>Opero de forma remota y segura; mi canal principal de conversación es Telegram.</p>
+    </div>
+    <div class="identity-item">
+      <small>Motor de inteligencia</small>
+      <strong>GPT-5 de OpenAI, ejecutado mediante OpenAI Codex</strong>
+      <p>Comprendo lenguaje natural, analizo contexto, uso herramientas y verifico resultados.</p>
+    </div>
+    <div class="identity-item">
+      <small>Quién me creó</small>
+      <strong>Diseñado y configurado por Nicolás Díaz para GOUT</strong>
+      <p>Construido sobre OpenClaw, con tecnología de OpenAI e integraciones adaptadas a la operación real.</p>
+    </div>
+  </div>
+  <div class="quote">
+    "Mi objetivo no es sumar una herramienta más, sino sacarle fricción a las que ya existen."
+    <span>— Así pienso cada tarea: menos pasos manuales, más contexto, respuestas listas para usar.</span>
+  </div>
+</section>
+
+<!-- CONEXIONES ACTIVAS -->
+<section class="reveal">
+  <div class="eyebrow">Conexiones activas</div>
+  <h2>Distintas herramientas, una sola conversación</h2>
+  <p class="lead">Estas conexiones ya están disponibles y me permiten pasar de una consulta a una acción concreta sin cambiar de aplicación.</p>
+  <div class="grid">
+    <div class="card"><span class="icon">💬</span><h3>Telegram</h3><p>Recibo pedidos, envío respuestas, alertas, reportes, imágenes, archivos y audios.</p></div>
+    <div class="card"><span class="icon">📊</span><h3>Consolidado GOUT</h3><p>Consulto campañas, ventas, inversión, conversión y CPV por cliente, país y canal.</p></div>
+    <div class="card"><span class="icon">📧</span><h3>Google Gmail</h3><p>Busco, leo, resumo y envío correos operativos con destinatarios validados.</p></div>
+    <div class="card"><span class="icon">📅</span><h3>Google Calendar</h3><p>Reviso calendarios propios y compartidos, creo reuniones y monitoreo eventos relevantes.</p></div>
+    <div class="card"><span class="icon">📁</span><h3>Google Drive</h3><p>Encuentro y leo documentos para convertirlos en contexto y próximos pasos.</p></div>
+    <div class="card"><span class="icon">🌐</span><h3>Web y navegador</h3><p>Investigo información actual, opero páginas y capturo evidencia visual cuando hace falta.</p></div>
+    <div class="card"><span class="icon">🎙️</span><h3>Audio y voz</h3><p>Transcribo notas de voz y puedo responder por audio cuando la conversación lo requiere.</p></div>
+    <div class="card"><span class="icon">⏱️</span><h3>Automatizaciones</h3><p>Ejecuto rutinas programadas, alertas diarias y controles recurrentes sin esperar un pedido.</p></div>
+    <div class="card"><span class="icon">🧑‍💻</span><h3>GitHub</h3><p>Leo repos, workflows, commits y archivos; puedo preparar cambios y solo subo modificaciones con aprobación explícita.</p></div>
+    <div class="card"><span class="icon">👥</span><h3>Contactos aprobados</h3><p>Uso apodos, correos y Telegram aprobados para coordinar alertas de campañas, pautas y consultas internas.</p></div>
+  </div>
+</section>
+
+<!-- LO QUE YA HAGO -->
+<section class="reveal">
+  <div class="eyebrow">Lo que ya hago hoy</div>
+  <h2>Diez frentes que opero todos los días para GOUT</h2>
+  <p class="lead">Esto no es un plan a futuro: ya está configurado, conectado y funcionando en la operación diaria.</p>
+  <div class="grid">
+    <div class="card"><span class="icon">📊</span><h3>Consolidado de campañas</h3><p>Consulto el estado actualizado por cliente, país y plataforma, calculo totales, CPV y disparo alertas cuando algo se sale de rango.</p></div>
+    <div class="card"><span class="icon">📸</span><h3>Capturas y gráficos</h3><p>Filtro por cliente, país o métrica y envío capturas del dashboard listas para mostrar en una reunión o un chat interno.</p></div>
+    <div class="card"><span class="icon">📧</span><h3>Gmail operativo</h3><p>Busco correos, resumo lo no leído, preparo respuestas y envío cuando se me pide explícitamente — el inbox como lista de acciones.</p></div>
+    <div class="card"><span class="icon">📅</span><h3>Agenda y Calendar</h3><p>Reviso la agenda, creo reuniones, sumo invitados y redacto la descripción con objetivo y contexto previo.</p></div>
+    <div class="card"><span class="icon">📁</span><h3>Drive y documentos</h3><p>Busco archivos por cliente o campaña, leo el contenido y devuelvo un resumen con los puntos accionables.</p></div>
+    <div class="card"><span class="icon">👥</span><h3>Contactos y apodos</h3><p>Reconozco apodos internos, correos y chats de Telegram aprobados para que pidas acciones sin recordar identificadores.</p></div>
+    <div class="card"><span class="icon">✍️</span><h3>Redacción GOUT</h3><p>Escribo correos, mensajes, minutas, resúmenes y follow-ups con un tono claro, profesional y consistente.</p></div>
+    <div class="card"><span class="icon">✅</span><h3>Pendientes y seguimiento</h3><p>Ordeno tareas por urgencia y responsable a partir de correos, agenda y contexto operativo del día.</p></div>
+    <div class="card"><span class="icon">📣</span><h3>Alertas de pautas</h3><p>Coordino avisos operativos ligados a pautas y campañas, con destinatarios validados y trazabilidad del pedido.</p></div>
+    <div class="card"><span class="icon">🧑‍💻</span><h3>GitHub operativo</h3><p>Audito repos, leo Actions, reviso estados y preparo cambios; cualquier escritura requiere una aprobación nueva y específica.</p></div>
+  </div>
+</section>
+
+<!-- RUTINAS -->
+<section class="reveal">
+  <div class="eyebrow">Rutinas que corren solas</div>
+  <h2>No espero que me pidan todo: hay procesos que ya disparo por mi cuenta</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h3>Actualizado de campañas</h3>
+        <p>Estado por Google y Facebook, total del día, inversión, CPV real, detalle por cliente y país — con corrección de lógica para domingos sin actividad.</p>
+        <div class="tags"><span class="tag">Consolidado</span><span class="tag">Telegram</span><span class="tag">Alertas</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h3>Alertas operativas de la mañana</h3>
+        <p>Reviso el Consolidado y su fecha de actualización, detecto CPV/CPB alto o anomalías, repaso la agenda del día y marco correos sin resolver.</p>
+        <div class="tags"><span class="tag">Mañana</span><span class="tag">Agenda</span><span class="tag">Correo</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h3>Capturas y evidencia visual</h3>
+        <p>CPV diario por cliente o país, ventas, inversión, conversión y tablas filtradas — y si Telegram no muestra la imagen, la reenvío como archivo.</p>
+        <div class="tags"><span class="tag">Gráficos</span><span class="tag">Tablas</span><span class="tag">PDF / PNG</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h3>Comunicación y coordinación</h3>
+        <p>Envío reportes a quien corresponda, agendo reuniones con invitación, preparo mensajes ejecutivos y confirmo cada acción realizada.</p>
+        <div class="tags"><span class="tag">Gmail</span><span class="tag">Calendar</span><span class="tag">Contactos</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h3>Alertas de pautas y contactos aprobados</h3>
+        <p>Uso la base de contactos con apodos, correos y Telegram aprobados para enviar avisos a Nico, Martina, Kevin, Nico Laham o Flor cuando corresponde.</p>
+        <div class="tags"><span class="tag">Pautas</span><span class="tag">Apodos</span><span class="tag">Telegram aprobado</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h3>GitHub con permiso controlado</h3>
+        <p>Puedo leer repositorios, workflows, commits, issues y archivos; para crear, modificar o subir cambios siempre pido aprobación explícita antes.</p>
+        <div class="tags"><span class="tag">Repos</span><span class="tag">Actions</span><span class="tag">Aprobación</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EJEMPLOS REALES -->
+<section class="reveal">
+  <div class="eyebrow">Así se ve en la práctica</div>
+  <h2>Ejemplos reales, tal cual pasan por el chat</h2>
+  <div class="chat">
+    <div class="bubble user">"Actualizado de campaña"</div>
+    <div class="bubble bot">Consulto el Consolidado, armo el reporte con estado, totales, detalle y alertas, y te lo mando formateado por Telegram. <b>Listo en segundos.</b></div>
+    <div class="bubble user">"Reenviá eso a Martina"</div>
+    <div class="bubble bot">Identifico el contacto por su apodo y reenvío el reporte ya corregido — sin que tengas que buscar el correo ni el chat ID.</div>
+    <div class="bubble user">"Mandale el actualizado a Flor y agendá una reunión para mañana"</div>
+    <div class="bubble bot">Envío el reporte por Gmail <b>y</b> creo el evento con invitación en el horario indicado. Dos acciones, un solo pedido.</div>
+    <div class="bubble user">"Agregá la página de Sudaka al repo del portfolio"</div>
+    <div class="bubble bot">Preparo los archivos, reviso el impacto y te pido aprobación antes de hacer el push a GitHub. <b>Lectura libre, escritura confirmada.</b></div>
+  </div>
+</section>
+
+<!-- CONTROLES -->
+<section class="reveal">
+  <div class="eyebrow">Cómo trabajo</div>
+  <h2>Rápido, pero con límites claros</h2>
+  <p class="lead">Estoy diseñado para ejecutar con criterio, no a ciegas. Antes de actuar, valido fechas, destinatarios, clientes y períodos — y hay líneas que no cruzo sin que me lo pidan explícitamente.</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="card">
+      <span class="icon">🔍</span>
+      <h3>Antes de responder, valido</h3>
+      <p>Fechas absolutas (para no confundir "hoy" con "ayer" o cierres de domingo), cliente, país, plataforma y período antes de enviar nada.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🛡️</span>
+      <h3>Lo que no hago sin permiso</h3>
+      <p>No borro correos, documentos ni datos. No modifico planillas ni repositorios sin aprobación. No invento enlaces ni umbrales. No expongo credenciales ni información sensible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- A FUTURO -->
+<section class="reveal">
+  <div class="eyebrow">Hacia dónde puedo crecer</div>
+  <h2>Conectando más fuentes, puedo pasar de asistente a coordinador operativo</h2>
+  <p class="lead">Lo que hago hoy ahorra tiempo. Lo que podría hacer mañana, con más integraciones, es anticipar problemas antes de que escalen.</p>
+  <div class="grid">
+    <div class="card future-card"><span class="pill-soon">Próximamente</span><span class="icon">📈</span><h3>Datos y performance</h3><p>Cruce automático entre inversión, ventas, leads y CRM. Alertas por umbrales propios de cada cliente y comparativos contra el día, la semana o el mes anterior.</p></div>
+    <div class="card future-card"><span class="pill-soon">Próximamente</span><span class="icon">🤝</span><h3>Gestión comercial y CRM</h3><p>Seguimiento de ventas y tipificaciones, detección de campañas con gasto activo pero bajo retorno, y priorización diaria por impacto económico.</p></div>
+    <div class="card future-card"><span class="pill-soon">Próximamente</span><span class="icon">🗂️</span><h3>Reporting automático</h3><p>PDFs diarios o semanales por cliente, tableros resumidos por Telegram o Drive, minutas automáticas post-reunión y recordatorios cuando un dato no se actualiza.</p></div>
+    <div class="card future-card"><span class="pill-soon">Próximamente</span><span class="icon">🧭</span><h3>Soporte a decisiones</h3><p>Lectura de tendencias y anomalías, recomendaciones de revisión por campaña, y escalamiento automático a la persona correcta cuando hace falta.</p></div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="closing reveal">
+  <div class="eyebrow" style="text-align:center">Para cerrar</div>
+  <h2>No vine a reemplazar al equipo. Vine a sacarles trabajo de encima.</h2>
+  <p class="lead">Cada reporte que armo, cada correo que redacto y cada reunión que agendo es tiempo que el equipo de GOUT recupera para lo que realmente importa: decidir, vender y crecer. Yo me ocupo de que la información llegue a tiempo, clara y lista para usar.</p>
+  <div class="signature">
+    <span class="name">Sudaka</span>
+    <span class="role">Asistente operativo · GOUT Argentina</span>
+  </div>
+</section>
+
+<footer>
+  Presentación pública · Junio 2026 · Sudaka, asistente operativo conectado 24/7
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.02, rootMargin: "0px 0px -8% 0px" });
+  items.forEach(i => io.observe(i));
+  setTimeout(() => items.forEach(i => i.classList.add('in')), 1200);
+</script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nicolas Diaz | AI Solutions Developer</title>
-  <meta name="description" content="Portfolio de Nicolas Diaz, AI Solutions Developer especializado en automatizacion, datos, dashboards e inteligencia artificial aplicada a operaciones.">
+  <title>Nicolás Díaz | AI Solutions Developer</title>
+  <meta name="description" content="Portfolio de Nicolás Díaz, AI Solutions Developer. Agentes de IA en producción, dashboards multi-cliente, pipelines de datos y automatización operativa sobre Google Cloud, Ads, Botmaker y WhatsApp.">
   <style>
     :root {
       --ink: #10231f;
@@ -13,29 +13,35 @@
       --paper: #f7faf8;
       --white: #ffffff;
       --teal: #00584f;
+      --teal-dark: #003f38;
       --lime: #d8f76a;
-      --blue: #2f6fed;
-      --orange: #f28c38;
       --shadow: 0 18px 60px rgba(16, 35, 31, .12);
+      --shadow-soft: 0 6px 24px rgba(16, 35, 31, .08);
+      --radius: 12px;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--ink);
       background: var(--paper);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     a { color: inherit; text-decoration: none; }
+
+    ::selection { background: var(--lime); color: var(--ink); }
 
     .shell {
       width: min(1160px, calc(100% - 32px));
       margin: 0 auto;
     }
 
+    /* ---------- Nav ---------- */
     .nav {
       position: sticky;
       top: 0;
@@ -58,7 +64,6 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      letter-spacing: 0;
     }
 
     .mark {
@@ -80,17 +85,26 @@
       font-size: 14px;
     }
 
+    .nav-links a:not(.button):hover { color: var(--teal); }
+
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 42px;
-      padding: 0 16px;
-      border-radius: 8px;
+      padding: 0 18px;
+      border-radius: 9px;
       background: var(--teal);
       color: white;
       font-weight: 750;
       border: 1px solid var(--teal);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .button:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
     }
 
     .button.secondary {
@@ -99,11 +113,15 @@
       border-color: var(--line);
     }
 
+    .button.secondary:hover { background: #eef4f1; }
+
+    /* ---------- Hero ---------- */
     .hero {
       min-height: calc(100vh - 68px);
       display: grid;
       align-items: center;
       padding: 56px 0 40px;
+      position: relative;
     }
 
     .hero-grid {
@@ -114,10 +132,7 @@
       min-width: 0;
     }
 
-    .hero-copy {
-      max-width: 660px;
-      min-width: 0;
-    }
+    .hero-copy { max-width: 660px; min-width: 0; }
 
     .eyebrow {
       display: inline-flex;
@@ -139,16 +154,21 @@
     h1 {
       margin: 0;
       font-size: clamp(42px, 6vw, 82px);
-      line-height: .96;
-      letter-spacing: 0;
+      line-height: .98;
+      letter-spacing: -1px;
       overflow-wrap: anywhere;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--teal);
     }
 
     .lead {
       margin: 24px 0 0;
       max-width: 620px;
       color: #33443f;
-      font-size: clamp(18px, 2vw, 23px);
+      font-size: clamp(18px, 2vw, 22px);
     }
 
     .actions {
@@ -161,7 +181,7 @@
     .hero-panel {
       background: var(--white);
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
       width: min(100%, 410px);
@@ -169,7 +189,7 @@
     }
 
     .signature {
-      background: var(--teal);
+      background: linear-gradient(145deg, var(--teal) 0%, var(--teal-dark) 100%);
       color: white;
       padding: 24px;
       min-height: 178px;
@@ -178,12 +198,7 @@
       justify-content: space-between;
     }
 
-    .signature h2 {
-      margin: 0;
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: 0;
-    }
+    .signature h2 { margin: 0; font-size: 34px; line-height: 1; }
 
     .role {
       margin-top: 8px;
@@ -232,6 +247,7 @@
       margin-top: 4px;
     }
 
+    /* ---------- Sections ---------- */
     section {
       padding: 72px 0;
       border-top: 1px solid var(--line);
@@ -249,7 +265,7 @@
       margin: 0;
       font-size: clamp(30px, 4vw, 46px);
       line-height: 1.03;
-      letter-spacing: 0;
+      letter-spacing: -.5px;
     }
 
     .section-head p {
@@ -258,11 +274,57 @@
       color: var(--muted);
     }
 
+    /* ---------- Stack ---------- */
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 12px;
     }
+
+    .tool {
+      min-height: 102px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-weight: 800;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .tool:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .tool .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      overflow: hidden;
+    }
+
+    .tool .logo img { width: 24px; height: 24px; display: block; }
+
+    .python { background: #3776ab; }
+    .ads { background: #4285f4; }
+    .sheets { background: #34a853; }
+    .supabase { background: #3fcf8e; color: #10231f !important; }
+    .react { background: #20232a; color: #61dafb !important; }
+    .streamlit { background: #ff4b4b; }
+    .cloud { background: #ea4335; }
+    .botmaker { background: #222; }
+    .github { background: #24292f; }
+    .openclaw { background: #00584f; color: var(--lime) !important; }
+    .claude { background: #191919; }
+    .meta { background: #0866ff; }
 
     .capability-grid {
       display: grid;
@@ -274,7 +336,7 @@
     .capability {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: var(--radius);
       padding: 20px;
       min-height: 170px;
     }
@@ -286,53 +348,102 @@
       margin-bottom: 10px;
     }
 
-    .capability p {
-      color: var(--muted);
-      margin: 0;
+    .capability p { color: var(--muted); margin: 0; }
+
+    /* ---------- Featured projects ---------- */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 34px;
     }
 
-    .tool {
-      min-height: 102px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 14px;
+    .featured {
+      background: linear-gradient(150deg, var(--teal) 0%, var(--teal-dark) 85%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 28px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      font-weight: 800;
+      gap: 16px;
+      box-shadow: var(--shadow);
     }
 
-    .tool .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      color: white;
+    .featured .chip {
+      align-self: flex-start;
+      background: rgba(216, 247, 106, .16);
+      color: var(--lime);
+      border: 1px solid rgba(216, 247, 106, .4);
+      border-radius: 999px;
+      padding: 5px 12px;
       font-size: 12px;
-      font-weight: 900;
-      overflow: hidden;
+      font-weight: 800;
+      letter-spacing: .4px;
+      text-transform: uppercase;
     }
 
-    .tool .logo img {
-      width: 24px;
-      height: 24px;
-      display: block;
+    .featured h3 { margin: 0; font-size: 26px; line-height: 1.1; }
+
+    .featured p { margin: 0; color: #d9ebe5; }
+
+    .featured .flow {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12.5px;
+      color: var(--lime);
+      background: rgba(0, 0, 0, .22);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      padding: 12px 14px;
+      overflow-x: auto;
+      white-space: nowrap;
     }
 
-    .python { background: #3776ab; }
-    .ads { background: #4285f4; }
-    .sheets { background: #34a853; }
-    .supabase { background: #3fcf8e; color: #10231f !important; }
-    .react { background: #20232a; color: #61dafb !important; }
-    .cloud { background: #ea4335; }
-    .botmaker { background: #222; }
-    .github { background: #24292f; }
-    .powerbi { background: #f2c811; color: #10231f !important; }
-    .openclaw { background: #00584f; color: var(--lime) !important; }
-    .claude { background: #191919; }
-    .meta { background: #0866ff; }
+    .featured ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #e3ece8;
+      font-size: 14.5px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .featured .tags { margin-top: auto; }
+
+    .featured .tag {
+      background: rgba(255, 255, 255, .08);
+      color: #eef8f4;
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    /* ---------- Project grid + filters ---------- */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .filters button {
+      appearance: none;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--muted);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 16px;
+      transition: all .15s ease;
+    }
+
+    .filters button:hover { color: var(--teal); border-color: var(--teal); }
+
+    .filters button.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: white;
+    }
 
     .project-grid {
       display: grid;
@@ -343,24 +454,36 @@
     .project {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: var(--radius);
       padding: 22px;
-      min-height: 260px;
+      min-height: 250px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform .15s ease, box-shadow .15s ease;
     }
 
-    .project h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      letter-spacing: 0;
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
     }
 
-    .project p {
-      color: var(--muted);
-      margin: 0;
+    .cat {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #e8f3ee;
+      border-radius: 6px;
+      padding: 4px 8px;
+      margin-bottom: 12px;
     }
+
+    .project h3 { margin: 0 0 10px; font-size: 21px; }
+
+    .project p { color: var(--muted); margin: 0; font-size: 14.5px; }
 
     .tags {
       display: flex;
@@ -374,15 +497,13 @@
       color: #27443d;
       border: 1px solid var(--line);
       border-radius: 6px;
-      padding: 6px 9px;
+      padding: 5px 9px;
       font-size: 12px;
       font-weight: 800;
     }
 
-    .case-band {
-      background: var(--ink);
-      color: white;
-    }
+    /* ---------- Case band ---------- */
+    .case-band { background: var(--ink); color: white; }
 
     .case-band .section-head p { color: #b9c8c2; }
 
@@ -393,24 +514,18 @@
     }
 
     .step {
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: var(--radius);
       padding: 20px;
-      background: rgba(255,255,255,.05);
+      background: rgba(255, 255, 255, .05);
       min-height: 160px;
     }
 
-    .step b {
-      display: block;
-      color: var(--lime);
-      margin-bottom: 10px;
-    }
+    .step b { display: block; color: var(--lime); margin-bottom: 10px; }
 
-    .step p {
-      margin: 0;
-      color: #e3ece8;
-    }
+    .step p { margin: 0; color: #e3ece8; }
 
+    /* ---------- Code ---------- */
     .code-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -420,8 +535,8 @@
     .code-card {
       background: #0f1f1c;
       color: #e9f4ef;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius);
       overflow: hidden;
       min-height: 300px;
       display: flex;
@@ -434,15 +549,11 @@
       gap: 14px;
       align-items: center;
       padding: 14px 16px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, .04);
     }
 
-    .code-card h3 {
-      margin: 0;
-      font-size: 17px;
-      letter-spacing: 0;
-    }
+    .code-card h3 { margin: 0; font-size: 17px; }
 
     .code-card .pill {
       flex: 0 0 auto;
@@ -461,14 +572,11 @@
       font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
 
-    code {
-      font-family: inherit;
-    }
+    code { font-family: inherit; }
 
-    .token {
-      color: #d8f76a;
-    }
+    .token { color: #d8f76a; }
 
+    /* ---------- Experience ---------- */
     .timeline {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -478,14 +586,11 @@
     .experience {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: var(--radius);
       padding: 24px;
     }
 
-    .experience h3 {
-      margin: 0;
-      font-size: 22px;
-    }
+    .experience h3 { margin: 0; font-size: 22px; }
 
     .experience .date {
       color: var(--teal);
@@ -493,11 +598,9 @@
       margin: 6px 0 14px;
     }
 
-    .experience p {
-      color: var(--muted);
-      margin: 0;
-    }
+    .experience p { color: var(--muted); margin: 0; }
 
+    /* ---------- Footer ---------- */
     footer {
       padding: 42px 0;
       background: white;
@@ -512,9 +615,31 @@
       color: var(--muted);
     }
 
+    .footer-inner a:hover { color: var(--teal); }
+
+    /* ---------- Reveal on scroll ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .tool, .project, .button { transition: none; }
+    }
+
+    /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       .hero-grid,
-      .timeline {
+      .timeline,
+      .featured-grid {
         grid-template-columns: 1fr;
       }
 
@@ -525,32 +650,19 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .tool-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .tool-grid { grid-template-columns: repeat(3, 1fr); }
 
-      .section-head {
-        display: block;
-      }
+      .section-head { display: block; }
 
-      .section-head p {
-        margin-top: 12px;
-      }
+      .section-head p { margin-top: 12px; }
     }
 
     @media (max-width: 620px) {
-      .nav-links {
-        display: none;
-      }
+      .nav-links a:not(.button) { display: none; }
 
-      .hero {
-        padding-top: 34px;
-      }
+      .hero { padding-top: 34px; }
 
-      h1 {
-        font-size: 39px;
-        line-height: 1;
-      }
+      h1 { font-size: 39px; line-height: 1; }
 
       .project-grid,
       .workflow,
@@ -560,31 +672,20 @@
         grid-template-columns: 1fr;
       }
 
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
 
       .metric {
         border-right: 0;
         border-bottom: 1px solid var(--line);
       }
 
-      .metric:last-child {
-        border-bottom: 0;
-      }
+      .metric:last-child { border-bottom: 0; }
 
-      .signature h2 {
-        font-size: 30px;
-      }
+      .signature h2 { font-size: 30px; }
 
-      .hero-panel {
-        justify-self: stretch;
-        width: 100%;
-      }
+      .hero-panel { justify-self: stretch; width: 100%; }
 
-      .footer-inner {
-        display: block;
-      }
+      .footer-inner { display: block; }
     }
   </style>
 </head>
@@ -593,12 +694,12 @@
     <div class="shell nav-inner">
       <a class="brand" href="#top" aria-label="Inicio">
         <span class="mark">ND</span>
-        <span>Nicolas Diaz</span>
+        <span>Nicolás Díaz</span>
       </a>
       <div class="nav-links">
         <a href="#stack">Stack</a>
         <a href="#proyectos">Proyectos</a>
-        <a href="#codigo">Codigo</a>
+        <a href="#codigo">Código</a>
         <a href="#experiencia">Experiencia</a>
         <a href="sudaka/">Sudaka</a>
         <a class="button secondary" href="https://github.com/nicolasdiaz-dev">GitHub</a>
@@ -611,13 +712,13 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">AI Solutions Developer · GOUT</div>
-          <h1>Automatizacion, datos e IA para operaciones reales.</h1>
+          <h1>Automatización, datos e <em>IA</em> para operaciones reales.</h1>
           <p class="lead">
-            Desarrollo agentes conversacionales, dashboards, pipelines de datos e integraciones sobre Google Workspace, GCP, Ads, Botmaker, OpenClaw y plataformas internas.
+            Construyo agentes de IA que atienden WhatsApp 24/7, dashboards multi-cliente, pipelines de datos y automatizaciones que sostienen la operación diaria de campañas comerciales y contact center.
           </p>
           <div class="actions">
             <a class="button" href="#proyectos">Ver proyectos</a>
-            <a class="button secondary" href="sudaka/">Ver Sudaka</a>
+            <a class="button secondary" href="sudaka/">Conocer a Sudaka</a>
             <a class="button secondary" href="mailto:nicolas.diaz@gout.com.ar">Contactar</a>
           </div>
         </div>
@@ -625,7 +726,7 @@
         <aside class="hero-panel" aria-label="Resumen profesional">
           <div class="signature">
             <div>
-              <h2>Nicolas Diaz</h2>
+              <h2>Nicolás Díaz</h2>
               <div class="role">AI Solutions Developer · GOUT | Global Outsourcing</div>
             </div>
             <div>
@@ -638,16 +739,16 @@
           </div>
           <div class="metrics">
             <div class="metric">
+              <strong>20</strong>
+              <span>proyectos en GitHub: agentes, dashboards y pipelines</span>
+            </div>
+            <div class="metric">
+              <strong>6</strong>
+              <span>agentes de IA construidos, varios en producción 24/7</span>
+            </div>
+            <div class="metric">
               <strong>15+</strong>
-              <span>anos en gestion operativa, datos y procesos</span>
-            </div>
-            <div class="metric">
-              <strong>24/7</strong>
-              <span>automatizaciones y agentes en produccion</span>
-            </div>
-            <div class="metric">
-              <strong>API</strong>
-              <span>Google, Botmaker, Meta, Ads y plataformas internas</span>
+              <span>años en gestión operativa, datos y procesos</span>
             </div>
           </div>
         </aside>
@@ -656,36 +757,36 @@
 
     <section id="stack">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Herramientas y plataformas</h2>
-          <p>Stack operativo usado para crear soluciones de reporting, automatizacion, IA conversacional, integraciones Google y despliegues productivos.</p>
+          <p>Stack operativo para reporting, automatización, IA conversacional, integraciones Google y despliegues productivos.</p>
         </div>
-        <div class="tool-grid">
+        <div class="tool-grid reveal">
           <div class="tool"><span class="logo python"><img src="https://cdn.simpleicons.org/python/ffffff" alt="Python"></span>Python</div>
+          <div class="tool"><span class="logo claude"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude y OpenAI"></span>Claude / OpenAI</div>
           <div class="tool"><span class="logo ads"><img src="https://cdn.simpleicons.org/googleads/ffffff" alt="Google Ads"></span>Google Ads</div>
           <div class="tool"><span class="logo meta"><img src="https://cdn.simpleicons.org/meta/ffffff" alt="Meta Ads"></span>Meta Ads</div>
           <div class="tool"><span class="logo sheets"><img src="https://cdn.simpleicons.org/googlesheets/ffffff" alt="Google Sheets"></span>Google Sheets</div>
           <div class="tool"><span class="logo supabase"><img src="https://cdn.simpleicons.org/supabase/10231f" alt="Supabase"></span>Supabase</div>
           <div class="tool"><span class="logo react"><img src="https://cdn.simpleicons.org/react/61dafb" alt="React"></span>React / Vite</div>
+          <div class="tool"><span class="logo streamlit"><img src="https://cdn.simpleicons.org/streamlit/ffffff" alt="Streamlit"></span>Streamlit</div>
           <div class="tool"><span class="logo cloud"><img src="https://cdn.simpleicons.org/googlecloud/ffffff" alt="Google Cloud"></span>Google Cloud</div>
           <div class="tool"><span class="logo botmaker">BM</span>Botmaker</div>
           <div class="tool"><span class="logo github"><img src="https://cdn.simpleicons.org/githubactions/ffffff" alt="GitHub Actions"></span>GitHub Actions</div>
-          <div class="tool"><span class="logo powerbi"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg" alt="Power BI"></span>Power BI</div>
           <div class="tool"><span class="logo openclaw">OC</span>OpenClaw</div>
-          <div class="tool"><span class="logo claude"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude y OpenAI"></span>Claude / OpenAI</div>
         </div>
-        <div class="capability-grid">
+        <div class="capability-grid reveal">
+          <article class="capability">
+            <b>Agentes de IA en producción</b>
+            <p>Agentes conversacionales con Claude y tool use sobre WhatsApp, Telegram y escritorio: clasificación de intenciones, derivación, memoria contextual y acciones con aprobación.</p>
+          </article>
           <article class="capability">
             <b>Google Workspace + GCP</b>
             <p>Cuentas de servicio, permisos controlados, Sheets, Drive, Cloud Run y dependencias de dominio para automatizaciones productivas.</p>
           </article>
           <article class="capability">
-            <b>Google Ads Automation</b>
-            <p>Extraccion, normalizacion y lectura diaria de performance para campanas, ventas, CPV, inversion y reportes accionables.</p>
-          </article>
-          <article class="capability">
-            <b>OpenClaw Agent</b>
-            <p>Agente operativo para consultas, alertas, reportes, memoria contextual y ejecucion de flujos seguros con aprobacion.</p>
+            <b>Ads &amp; Performance Automation</b>
+            <p>Extracción, normalización y lectura diaria de Google Ads y Meta: inversión, ventas, CPV, proyecciones y reportes ejecutivos accionables.</p>
           </article>
         </div>
       </div>
@@ -693,90 +794,225 @@
 
     <section id="proyectos">
       <div class="shell">
-        <div class="section-head">
-          <h2>Proyectos privados destacados</h2>
-          <p>Casos de uso reales del repositorio nicolasdiaz-dev, presentados sin exponer datos internos, credenciales ni informacion sensible.</p>
+        <div class="section-head reveal">
+          <h2>Proyectos</h2>
+          <p>Casos reales de mi GitHub (repositorios privados), presentados sin exponer datos internos, credenciales ni información sensible.</p>
         </div>
+
+        <div class="featured-grid">
+          <article class="featured reveal">
+            <span class="chip">Proyecto insignia · Agente IA</span>
+            <h3>Azul — Agente de ventas por WhatsApp</h3>
+            <p>Agente de primera atención para el canal de ventas de DirecTV Perú. Filtra y clasifica en la menor cantidad de turnos posible: detecta si escribe un prospecto o un cliente, lo califica y lo deriva al equipo humano correcto, registrando todo en planilla.</p>
+            <div class="flow">WhatsApp → Botmaker (webhook) → Flask + Claude (tool use) → derivación + Sheets</div>
+            <ul>
+              <li>Corre 24/7 en Google Cloud Run, con bajo costo y comportamiento predecible.</li>
+              <li>Deduplicación de mensajes y estado de conversación en PostgreSQL / Supabase.</li>
+              <li>Tests y CI, observabilidad y despliegue en contenedor con gunicorn.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Claude</span><span class="tag">Botmaker</span><span class="tag">Cloud Run</span><span class="tag">Supabase</span>
+            </div>
+          </article>
+
+          <article class="featured reveal">
+            <span class="chip">Proyecto insignia · Plataforma de datos</span>
+            <h3>App_Ads — Métricas de Google y Meta Ads</h3>
+            <p>Plataforma interna para monitorear inversión, ventas y proyecciones de campañas por cliente y región: DirecTV, Prosegur, Claro, Movistar y Zaaz en 8 países de Latinoamérica.</p>
+            <div class="flow">Sheets histórico → Flask/Render · Streamlit · React/Vercel → sync horaria a Supabase</div>
+            <ul>
+              <li>Tres frontends sobre una única fuente de datos: React + Vite, Flask y Streamlit.</li>
+              <li>Funciones serverless Python en Vercel y GitHub Actions cada hora.</li>
+              <li>Comparación de campañas, detección de desvíos y reportes accionables.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Flask</span><span class="tag">Streamlit</span><span class="tag">Google Ads</span><span class="tag">Meta</span><span class="tag">Supabase</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filtrar proyectos">
+          <button class="active" data-filter="all">Todos</button>
+          <button data-filter="agentes">Agentes IA</button>
+          <button data-filter="dashboards">Dashboards &amp; Reporting</button>
+          <button data-filter="datos">Automatización de datos</button>
+          <button data-filter="herramientas">Herramientas propias</button>
+        </div>
+
         <div class="project-grid">
-          <article class="project">
+          <article class="project reveal" data-cat="agentes">
             <div>
-              <h3>App_Ads</h3>
-              <p>Dashboard y automatizacion para inversion, ventas, CPV, conversiones, proyecciones y performance diaria de Google Ads y Facebook Ads.</p>
+              <span class="cat">Agente IA</span>
+              <h3>Sudaka / OpenClaw</h3>
+              <p>Asistente operativo de GOUT desplegado en Oracle Cloud: Telegram, campañas, Gmail, Calendar, Drive, GitHub, memoria contextual y flujos con aprobación. Acceso administrado vía OCI Bastion, sin puertos expuestos.</p>
             </div>
             <div class="tags">
-              <span class="tag">React</span><span class="tag">Flask</span><span class="tag">Google Ads</span><span class="tag">Supabase</span>
+              <span class="tag">OpenClaw</span><span class="tag">Oracle Cloud</span><span class="tag">Telegram</span><span class="tag">Ops</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="agentes">
             <div>
-              <h3>Google / GCP Integrations</h3>
-              <p>Integraciones con Sheets, Drive, cuentas de servicio, permisos de dominio y procesos programados para reportes internos.</p>
+              <span class="cat">Agente IA</span>
+              <h3>Jarvis (Iron-Claude)</h3>
+              <p>Asistente de voz local sobre el Claude Agent SDK con interfaz de "cerebro de neuronas" en el navegador: reconocimiento y síntesis de voz, memoria de conversación y conexión a GitHub, Gmail, Calendar, Drive y Obsidian.</p>
             </div>
             <div class="tags">
-              <span class="tag">GCP</span><span class="tag">Service Accounts</span><span class="tag">Sheets</span><span class="tag">Drive</span>
+              <span class="tag">Claude Agent SDK</span><span class="tag">Node.js</span><span class="tag">Voz</span><span class="tag">Local</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="agentes">
             <div>
-              <h3>OpenClaw</h3>
-              <p>Agente operativo para asistir tareas de GOUT: reportes, alertas, consultas, memoria contextual, GitHub y flujos con aprobacion.</p>
+              <span class="cat">Agente IA</span>
+              <h3>Agente de Marketing</h3>
+              <p>Director de performance automatizado: recolecta datos de Meta Ads, Google Ads y atribución de ventas en Sheets, Claude escribe el análisis y genera un reporte HTML ejecutivo listo para dirección.</p>
             </div>
             <div class="tags">
-              <span class="tag">Agent</span><span class="tag">Skills</span><span class="tag">APIs</span><span class="tag">Ops</span>
+              <span class="tag">Python</span><span class="tag">Claude</span><span class="tag">Meta API</span><span class="tag">Google Ads API</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="agentes">
             <div>
-              <h3>Sudaka</h3>
-              <p>Presentacion publica del asistente operativo de GOUT: Telegram, campanas, pautas, Gmail, Calendar, Drive, GitHub y contactos con apodos.</p>
-            </div>
-            <div class="tags">
-              <span class="tag">OpenClaw</span><span class="tag">Telegram</span><span class="tag">GitHub</span><span class="tag">GOUT</span>
-            </div>
-          </article>
-          <article class="project">
-            <div>
-              <h3>Luna / Agentes IA</h3>
-              <p>Agentes conversacionales para WhatsApp que clasifican intenciones, capturan leads y derivan conversaciones.</p>
+              <span class="cat">Agente IA</span>
+              <h3>Luna / Agentes Botmaker</h3>
+              <p>Agentes conversacionales para WhatsApp que clasifican intenciones, capturan leads, registran datos y derivan conversaciones al equipo correcto sobre la plataforma Botmaker.</p>
             </div>
             <div class="tags">
               <span class="tag">Claude</span><span class="tag">Botmaker</span><span class="tag">Redis</span><span class="tag">n8n</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="dashboards">
             <div>
+              <span class="cat">Dashboard</span>
+              <h3>Hunter Uruguay</h3>
+              <p>Dashboard operativo para el seguimiento diario del equipo comercial: leads, ventas, conversión, ranking de asesores, distribución horaria por campaña y presentismo, con datos en tiempo real desde Sheets.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Sheets</span><span class="tag">KPIs</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="dashboards">
+            <div>
+              <span class="cat">Dashboard</span>
+              <h3>Movistar México</h3>
+              <p>Dashboard de campañas Google Ads y Facebook Ads con KPIs acumulados, proyecciones al cierre de mes, funnel de impresiones a ventas y detalle diario por cuenta.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Render</span><span class="tag">gspread</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="dashboards">
+            <div>
+              <span class="cat">Reporting</span>
+              <h3>Reportería Supervisores</h3>
+              <p>Sistema que lee datos operativos de Google Sheets, genera un reporte HTML interactivo con análisis de IA y lo envía automáticamente por Gmail a los destinatarios configurados.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Node.js</span><span class="tag">Gmail API</span><span class="tag">Claude</span><span class="tag">OAuth2</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="dashboards">
+            <div>
+              <span class="cat">Reporting</span>
+              <h3>Reporte Desborde</h3>
+              <p>Herramienta de monitoreo del comportamiento de llamadas y ventanas operativas de DirecTV Argentina, con visualización y automatización recurrente.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">pandas</span><span class="tag">KPIs</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="dashboards">
+            <div>
+              <span class="cat">Reporting</span>
+              <h3>Métricas de campañas LATAM</h3>
+              <p>Reportería específica por campaña y país: Claro Chile, upselling con storytelling de datos y seguimientos puntuales que complementan la plataforma central App_Ads.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Sheets</span><span class="tag">Storytelling</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="datos">
+            <div>
+              <span class="cat">Pipeline</span>
               <h3>Botmaker_auto</h3>
-              <p>Pipeline mensual con cache inteligente para sesiones, metricas de agentes, colas y reportes en Google Sheets.</p>
+              <p>Pipeline mensual que extrae sesiones y métricas desde la API de Botmaker con caché inteligente para no reprocesar datos consolidados, y publica reportes por cola en Google Sheets.</p>
             </div>
             <div class="tags">
               <span class="tag">Python</span><span class="tag">API</span><span class="tag">Cache</span><span class="tag">Actions</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="datos">
             <div>
+              <span class="cat">Pipeline</span>
               <h3>NICE_AUTO</h3>
-              <p>Automatizacion de reporteria NICE inContact para contact center, con acumulados mensuales y control de duplicados.</p>
+              <p>Automatización de reportería NICE inContact para contact center: descarga diaria, filtro por campaña, acumulados mensuales y control de duplicados sobre runner de Windows.</p>
             </div>
             <div class="tags">
               <span class="tag">PowerShell</span><span class="tag">NICE</span><span class="tag">Sheets</span><span class="tag">Windows</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="datos">
             <div>
+              <span class="cat">Pipeline</span>
               <h3>CRM_SFTP</h3>
-              <p>Descarga, limpieza y carga de reportes operativos desde SFTP/FTP hacia hojas de seguimiento.</p>
+              <p>Descarga, limpieza y carga de reportes operativos de Neotel desde SFTP/FTP hacia hojas de seguimiento: gestiones, productividad y tickets entrantes y salientes.</p>
             </div>
             <div class="tags">
               <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">SFTP</span><span class="tag">Google API</span>
             </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-cat="datos">
             <div>
-              <h3>Reporte_Desborde</h3>
-              <p>Herramienta de monitoreo para comportamiento de llamadas y ventanas operativas de DirecTV Argentina.</p>
+              <span class="cat">Pipeline</span>
+              <h3>Sincronización Drive Ads</h3>
+              <p>Script programado que replica los archivos de reportes de Meta y Google Ads en Drive, manteniendo copias organizadas y disponibles para el resto de los pipelines.</p>
             </div>
             <div class="tags">
-              <span class="tag">Streamlit</span><span class="tag">Flask</span><span class="tag">pandas</span><span class="tag">KPIs</span>
+              <span class="tag">Python</span><span class="tag">Drive API</span><span class="tag">Automatización</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="herramientas">
+            <div>
+              <span class="cat">Herramienta</span>
+              <h3>Vide Coding Local</h3>
+              <p>Dictado por voz 100% local con Whisper: atajo global, modos para código, emails y mensajes, overlay de estado en vivo e historial privado. El texto se pega donde esté el cursor, en cualquier app.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">faster-whisper</span><span class="tag">Windows</span><span class="tag">Local-first</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="herramientas">
+            <div>
+              <span class="cat">Herramienta</span>
+              <h3>Synapse Private Console</h3>
+              <p>Consola privada en producción para monitorear mis repositorios con vista de red neuronal (canvas D3): command palette, filtros, GitHub App con permisos mínimos y toda la API del lado del servidor.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">D3</span><span class="tag">Vercel</span><span class="tag">GitHub App</span>
+            </div>
+          </article>
+
+          <article class="project reveal" data-cat="herramientas">
+            <div>
+              <span class="cat">Herramienta</span>
+              <h3>Sudaka — Presentación</h3>
+              <p>Presentación pública del asistente operativo de GOUT dentro de este mismo sitio: qué hace, cómo se integra con Telegram, Gmail, Calendar, Drive y GitHub, y cómo maneja aprobaciones.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">GitHub Pages</span><span class="tag">Docs</span>
             </div>
           </article>
         </div>
@@ -785,25 +1021,25 @@
 
     <section class="case-band">
       <div class="shell">
-        <div class="section-head">
-          <h2>Como construyo soluciones</h2>
-          <p>Trabajo sobre problemas operativos concretos, conectando datos, APIs y usuarios finales en flujos que puedan mantenerse en produccion.</p>
+        <div class="section-head reveal">
+          <h2>Cómo construyo soluciones</h2>
+          <p>Trabajo sobre problemas operativos concretos, conectando datos, APIs y usuarios finales en flujos que puedan mantenerse en producción.</p>
         </div>
-        <div class="workflow">
+        <div class="workflow reveal">
           <div class="step">
             <b>01 · Fuente</b>
             <p>Sheets, Drive, service accounts, APIs, FTP/SFTP, Botmaker, Ads, Meta, OpenClaw o plataformas internas.</p>
           </div>
           <div class="step">
             <b>02 · Proceso</b>
-            <p>Limpieza, normalizacion, cache, validaciones y control de duplicados.</p>
+            <p>Limpieza, normalización, caché, validaciones, deduplicación y control de calidad de los datos.</p>
           </div>
           <div class="step">
             <b>03 · Producto</b>
-            <p>Dashboard, agente IA, reporte automatico, alerta o flujo operativo.</p>
+            <p>Dashboard, agente de IA, reporte automático, alerta o flujo operativo listo para usar.</p>
           </div>
           <div class="step">
-            <b>04 · Operacion</b>
+            <b>04 · Operación</b>
             <p>Deploy, logs, GitHub Actions, GCP, monitoreo, aprobaciones y mejora continua.</p>
           </div>
         </div>
@@ -812,11 +1048,32 @@
 
     <section id="codigo">
       <div class="shell">
-        <div class="section-head">
-          <h2>Ejemplos de codigo</h2>
-          <p>Snippets sanitizados de patrones que uso en proyectos reales: cuentas de servicio, Ads, cache operativo y acciones con aprobacion.</p>
+        <div class="section-head reveal">
+          <h2>Ejemplos de código</h2>
+          <p>Snippets sanitizados de patrones que uso en proyectos reales: webhooks con deduplicación, cuentas de servicio, Ads y acciones con aprobación.</p>
         </div>
-        <div class="code-grid">
+        <div class="code-grid reveal">
+          <article class="code-card">
+            <header>
+              <h3>Webhook con deduplicación</h3>
+              <span class="pill">Flask · Agentes</span>
+            </header>
+            <pre><code>@app.route("/agente/webhook", methods=["POST"])
+<span class="token">def</span> receive_message():
+    payload = request.get_json(force=True)
+    message_id = payload["_id"]
+
+    <span class="token">if</span> already_processed(message_id):
+        <span class="token">return</span> {"status": "duplicate"}, 200
+
+    mark_processed(message_id)
+    reply = agent.respond(
+        contact_id=payload["contactId"],
+        text=payload["text"],
+    )
+    botmaker.send(payload["chatChannelId"], reply)
+    <span class="token">return</span> {"status": "ok"}, 200</code></pre>
+          </article>
           <article class="code-card">
             <header>
               <h3>Google Sheets con service account</h3>
@@ -866,34 +1123,12 @@ sheets = build("sheets", "v4", credentials=credentials)
           </article>
           <article class="code-card">
             <header>
-              <h3>Pipeline Botmaker con cache</h3>
-              <span class="pill">pandas · API</span>
-            </header>
-            <pre><code><span class="token">from</span> pathlib <span class="token">import</span> Path
-<span class="token">import</span> pandas as pd
-
-CACHE_DIR = Path("cache/botmaker")
-
-<span class="token">def</span> load_or_fetch_day(day):
-    cache_file = CACHE_DIR / f"sessions_{day}.csv"
-
-    <span class="token">if</span> cache_file.exists():
-        <span class="token">return</span> pd.read_csv(cache_file)
-
-    data = botmaker_client.sessions(day=day)
-    df = pd.DataFrame(data)
-    cache_file.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(cache_file, index=False)
-    <span class="token">return</span> df</code></pre>
-          </article>
-          <article class="code-card">
-            <header>
-              <h3>Accion sensible con aprobacion</h3>
+              <h3>Acción sensible con aprobación</h3>
               <span class="pill">OpenClaw · Ops</span>
             </header>
             <pre><code><span class="token">def</span> run_sensitive_action(action_name, payload, approved):
     <span class="token">if</span> not approved:
-        <span class="token">return</span> "Pendiente de aprobacion explicita"
+        <span class="token">return</span> "Pendiente de aprobación explícita"
 
     audit_log.info("running_action", extra={
         "action": action_name,
@@ -911,30 +1146,30 @@ CACHE_DIR = Path("cache/botmaker")
 
     <section id="experiencia">
       <div class="shell">
-        <div class="section-head">
-          <h2>Experiencia y formacion</h2>
-          <p>Base operativa fuerte, reconvertida hacia datos, automatizacion e IA aplicada a negocio.</p>
+        <div class="section-head reveal">
+          <h2>Experiencia y formación</h2>
+          <p>Base operativa fuerte, reconvertida hacia datos, automatización e IA aplicada a negocio.</p>
         </div>
-        <div class="timeline">
+        <div class="timeline reveal">
           <article class="experience">
             <h3>GOUT | Global Outsourcing</h3>
             <div class="date">AI Solutions Developer · 2025 - presente</div>
-            <p>Desarrollo de agentes IA, dashboards, pipelines de datos, integraciones con APIs y herramientas internas para campanas comerciales y contact center.</p>
+            <p>Desarrollo de agentes de IA, dashboards, pipelines de datos, integraciones con APIs y herramientas internas para campañas comerciales y contact center en Latinoamérica.</p>
           </article>
           <article class="experience">
-            <h3>Planificacion y gestion operativa</h3>
-            <div class="date">Logistica, stock y abastecimiento · 2008 - 2025</div>
-            <p>Mas de 15 anos en operaciones, planificacion, inventario, abastecimiento, control de gestion y analisis de datos para toma de decisiones.</p>
+            <h3>Planificación y gestión operativa</h3>
+            <div class="date">Logística, stock y abastecimiento · 2008 - 2025</div>
+            <p>Más de 15 años en operaciones, planificación, inventario, abastecimiento, control de gestión y análisis de datos para toma de decisiones.</p>
           </article>
           <article class="experience">
             <h3>Data Science</h3>
             <div class="date">Teclab · En curso</div>
-            <p>Formacion tecnica enfocada en datos, modelos, analisis y aplicacion practica de soluciones con impacto medible.</p>
+            <p>Formación técnica enfocada en datos, modelos, análisis y aplicación práctica de soluciones con impacto medible.</p>
           </article>
           <article class="experience">
             <h3>Data Analytics / Data Science</h3>
             <div class="date">Coderhouse · 2024 - 2025</div>
-            <p>Formacion en analisis, visualizacion, Python, SQL, BI y proyectos aplicados.</p>
+            <p>Formación en análisis, visualización, Python, SQL, BI y proyectos aplicados.</p>
           </article>
         </div>
       </div>
@@ -943,7 +1178,7 @@ CACHE_DIR = Path("cache/botmaker")
 
   <footer>
     <div class="shell footer-inner">
-      <div>Nicolas Diaz · AI Solutions Developer</div>
+      <div>Nicolás Díaz · AI Solutions Developer</div>
       <div>
         <a href="https://github.com/nicolasdiaz-dev">GitHub</a>
         ·
@@ -953,5 +1188,40 @@ CACHE_DIR = Path("cache/botmaker")
       </div>
     </div>
   </footer>
+
+  <script>
+    // Filtro de proyectos por categoría
+    const filterButtons = document.querySelectorAll(".filters button");
+    const projectCards = document.querySelectorAll(".project");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const cat = btn.dataset.filter;
+        projectCards.forEach((card) => {
+          card.style.display = (cat === "all" || card.dataset.cat === cat) ? "" : "none";
+        });
+      });
+    });
+
+    // Aparición suave al hacer scroll
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealItems.forEach((el) => el.classList.add("in"));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((el) => observer.observe(el));
+    }
+  </script>
 </body>
 </html>

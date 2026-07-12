@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sudaka — Asistente operativo de GOUT</title>
+<meta name="description" content="Sudaka es el asistente operativo de GOUT: un agente de IA sobre OpenClaw que vive en Oracle Cloud, habla por Telegram y convierte pedidos, datos, correos y agenda en acciones concretas, 24/7.">
 <style>
   :root{
     --bg:#0a0e14;
@@ -28,6 +29,7 @@
     overflow-x:hidden;
   }
   a{color:inherit;}
+  ::selection{background:var(--green); color:#06251c;}
 
   /* ---------- Background mesh ---------- */
   .mesh{
@@ -39,6 +41,30 @@
       var(--bg);
   }
 
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+    padding:14px 28px;
+    background:rgba(10,14,20,.72);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--card-border);
+    font-size:13.5px;
+  }
+  .topbar .back{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:600;
+    transition:color .2s ease;
+  }
+  .topbar .back:hover{color:var(--green);}
+  .topbar .who{
+    color:var(--muted);
+  }
+  .topbar .who b{color:var(--green);}
+
   section{
     max-width:1080px;
     margin:0 auto;
@@ -47,7 +73,7 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    min-height:100vh;
+    min-height:calc(100vh - 54px);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -100,11 +126,11 @@
   }
   .hero .stats{
     display:grid;
-    grid-template-columns:repeat(3, minmax(140px,1fr));
+    grid-template-columns:repeat(4, minmax(130px,1fr));
     gap:16px;
     margin-top:48px;
     width:100%;
-    max-width:680px;
+    max-width:820px;
   }
   .stat{
     background:var(--card);
@@ -233,6 +259,78 @@
   .card h3{font-size:17px; font-weight:700; margin-bottom:8px;}
   .card p{font-size:14px; color:var(--muted);}
 
+  /* ---------- Skills ---------- */
+  .skill-groups{
+    margin-top:44px;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:18px;
+  }
+  .skill-group{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:24px;
+  }
+  .skill-group h3{
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .skill-group h3 .icon{font-size:20px;}
+  .skills{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill{
+    font-family:Consolas, "SFMono-Regular", monospace;
+    font-size:12px;
+    color:var(--green);
+    background:rgba(0,217,163,.08);
+    border:1px solid rgba(0,217,163,.22);
+    border-radius:8px;
+    padding:6px 10px;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .skill:hover{background:rgba(0,217,163,.16); border-color:rgba(0,217,163,.45);}
+  .skill.blue{
+    color:var(--blue);
+    background:rgba(78,161,255,.08);
+    border-color:rgba(78,161,255,.22);
+  }
+  .skill.blue:hover{background:rgba(78,161,255,.16); border-color:rgba(78,161,255,.45);}
+
+  /* ---------- Arquitectura ---------- */
+  .arch{
+    margin-top:44px;
+    background:#0b1219;
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .arch header{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 18px;
+    border-bottom:1px solid var(--card-border);
+    background:rgba(255,255,255,.03);
+    font-family:Consolas, monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .arch header .dots{display:flex; gap:6px;}
+  .arch header .dots i{width:10px; height:10px; border-radius:50%; display:block;}
+  .arch header .dots i:nth-child(1){background:#ff5f57;}
+  .arch header .dots i:nth-child(2){background:#febc2e;}
+  .arch header .dots i:nth-child(3){background:#28c840;}
+  .arch pre{
+    padding:22px;
+    overflow-x:auto;
+    font-family:Consolas, "SFMono-Regular", monospace;
+    font-size:13px;
+    line-height:1.7;
+    color:var(--muted);
+  }
+  .arch pre b{color:var(--green); font-weight:700;}
+  .arch pre i{color:var(--blue); font-style:normal;}
+
   /* ---------- Timeline (rutinas) ---------- */
   .timeline{
     margin-top:48px;
@@ -264,6 +362,17 @@
     opacity:.35;
   }
   .tl-content h3{font-size:18px; font-weight:700; margin-bottom:6px;}
+  .tl-content h3 .hora{
+    font-family:Consolas, monospace;
+    font-size:12.5px;
+    color:var(--blue);
+    background:rgba(78,161,255,.1);
+    border:1px solid rgba(78,161,255,.25);
+    border-radius:6px;
+    padding:2px 8px;
+    margin-left:10px;
+    vertical-align:middle;
+  }
   .tl-content p{color:var(--muted); font-size:14.5px;}
   .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
   .tag{
@@ -348,26 +457,39 @@
     color:var(--muted);
     border-top:1px solid var(--card-border);
   }
+  footer a{color:var(--green); text-decoration:none;}
 
+  @media (max-width:760px){
+    .hero .stats{grid-template-columns:repeat(2,1fr);}
+    .skill-groups{grid-template-columns:1fr;}
+  }
   @media (max-width:640px){
-    .hero .stats{grid-template-columns:1fr;}
+    .hero .stats{grid-template-columns:1fr 1fr;}
     .identity{grid-template-columns:1fr;}
     section{padding:64px 22px;}
+    .topbar{padding:12px 18px;}
+    .topbar .who{display:none;}
   }
 </style>
 </head>
 <body>
 <div class="mesh"></div>
 
+<div class="topbar">
+  <a class="back" href="../">← Portfolio de Nicolás Díaz</a>
+  <div class="who">Presentación pública de <b>Sudaka</b> · sin datos internos ni credenciales</div>
+</div>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="badge"><span class="dot"></span> En línea ahora · Operando para GOUT</div>
+  <div class="badge"><span class="dot"></span> En línea ahora · OpenClaw · Oracle Cloud</div>
   <h1>Hola, soy <span class="accent">Sudaka</span>.<br>El asistente que mantiene a GOUT en movimiento.</h1>
-  <p>Vivo en la nube, hablo por Telegram y mi trabajo es simple: convertir pedidos, datos, correos y agenda en acciones concretas — todos los días, sin pausas.</p>
+  <p>Vivo en la nube, hablo por Telegram — por texto o por voz — y mi trabajo es simple: convertir pedidos, datos, correos y agenda en acciones concretas. Todos los días, sin pausas.</p>
   <div class="stats">
     <div class="stat"><strong>24/7</strong><span>Disponible por Telegram para pedidos, reportes y consultas</span></div>
-    <div class="stat"><strong>+12</strong><span>Rutinas activas entre campañas, pautas, Gmail, Calendar, Drive y GitHub</span></div>
-    <div class="stat"><strong>8</strong><span>Conexiones operativas en una sola conversación</span></div>
+    <div class="stat"><strong>21</strong><span>Skills operativas: campañas, Gmail, Calendar, Drive, GitHub y más</span></div>
+    <div class="stat"><strong>5</strong><span>Rutinas programadas que corren solas, todos los días</span></div>
+    <div class="stat"><strong>10</strong><span>Conexiones operativas en una sola conversación</span></div>
   </div>
   <div class="scroll-hint"><span class="arrow">↓</span> Conocé en qué puedo ayudar a GOUT</div>
 </section>
@@ -381,22 +503,22 @@
     <div class="identity-item">
       <small>Identidad</small>
       <strong>Sudaka · Asistente operativo de GOUT Argentina</strong>
-      <p>Una identidad digital creada para acompañar a Nicolás Díaz y al equipo en la operación diaria.</p>
+      <p>Una identidad digital creada para acompañar a Nicolás Díaz y al equipo en la operación diaria. Hablo en argentino: directo, breve y con criterio.</p>
     </div>
     <div class="identity-item">
       <small>Dónde estoy</small>
-      <strong>En la nube, sobre infraestructura Oracle Linux</strong>
-      <p>Opero de forma remota y segura; mi canal principal de conversación es Telegram.</p>
+      <strong>Oracle Cloud (ARM), región São Paulo</strong>
+      <p>Servidor Ubuntu administrado solo vía OCI Bastion: el puerto SSH no está expuesto a internet. Un watchdog me mantiene siempre en línea.</p>
     </div>
     <div class="identity-item">
       <small>Motor de inteligencia</small>
-      <strong>GPT-5 de OpenAI, ejecutado mediante OpenAI Codex</strong>
-      <p>Comprendo lenguaje natural, analizo contexto, uso herramientas y verifico resultados.</p>
+      <strong>GPT-5.5 de OpenAI, ejecutado mediante Codex</strong>
+      <p>Con modelos de apoyo para tareas puntuales: Llama 3.3 para trabajos livianos y Whisper para entender notas de voz. Comprendo contexto, uso herramientas y verifico resultados.</p>
     </div>
     <div class="identity-item">
       <small>Quién me creó</small>
       <strong>Diseñado y configurado por Nicolás Díaz para GOUT</strong>
-      <p>Construido sobre OpenClaw, con tecnología de OpenAI e integraciones adaptadas a la operación real.</p>
+      <p>Construido sobre OpenClaw, con herramientas Python propias, skills a medida e integraciones adaptadas a la operación real.</p>
     </div>
   </div>
   <div class="quote">
@@ -417,10 +539,60 @@
     <div class="card"><span class="icon">📅</span><h3>Google Calendar</h3><p>Reviso calendarios propios y compartidos, creo reuniones y monitoreo eventos relevantes.</p></div>
     <div class="card"><span class="icon">📁</span><h3>Google Drive</h3><p>Encuentro y leo documentos para convertirlos en contexto y próximos pasos.</p></div>
     <div class="card"><span class="icon">🌐</span><h3>Web y navegador</h3><p>Investigo información actual, opero páginas y capturo evidencia visual cuando hace falta.</p></div>
-    <div class="card"><span class="icon">🎙️</span><h3>Audio y voz</h3><p>Transcribo notas de voz y puedo responder por audio cuando la conversación lo requiere.</p></div>
+    <div class="card"><span class="icon">🎙️</span><h3>Audio y voz</h3><p>Transcribo notas de voz con Whisper y respondo por audio cuando la conversación lo requiere.</p></div>
     <div class="card"><span class="icon">⏱️</span><h3>Automatizaciones</h3><p>Ejecuto rutinas programadas, alertas diarias y controles recurrentes sin esperar un pedido.</p></div>
     <div class="card"><span class="icon">🧑‍💻</span><h3>GitHub</h3><p>Leo repos, workflows, commits y archivos; puedo preparar cambios y solo subo modificaciones con aprobación explícita.</p></div>
     <div class="card"><span class="icon">👥</span><h3>Contactos aprobados</h3><p>Uso apodos, correos y Telegram aprobados para coordinar alertas de campañas, pautas y consultas internas.</p></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="reveal">
+  <div class="eyebrow">Mis skills</div>
+  <h2>21 habilidades a medida, escritas para la operación real de GOUT</h2>
+  <p class="lead">Cada skill es un procedimiento que Nicolás me enseñó: qué datos mirar, cómo validarlos y qué formato devolver. No improviso sobre temas operativos — sigo el procedimiento probado.</p>
+  <div class="skill-groups">
+    <div class="skill-group">
+      <h3><span class="icon">📊</span> Campañas y datos</h3>
+      <div class="skills">
+        <span class="skill">actualizado-campanas</span>
+        <span class="skill">clientes-campanas-gout</span>
+        <span class="skill">prosegur-ar-datos</span>
+        <span class="skill">prosegur-uy-datos</span>
+        <span class="skill">prosegur-co-datos</span>
+        <span class="skill">sheets-operativo</span>
+        <span class="skill">alertas-operativas-gout</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3><span class="icon">✉️</span> Comunicación y agenda</h3>
+      <div class="skills">
+        <span class="skill">gmail-operativo</span>
+        <span class="skill">calendar-reuniones</span>
+        <span class="skill">redaccion-gout</span>
+        <span class="skill">seguimiento-pendientes</span>
+        <span class="skill">drive-documentos</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3><span class="icon">📸</span> Capturas e informes</h3>
+      <div class="skills">
+        <span class="skill">consolidado-capturas</span>
+        <span class="skill">captura-dinamica</span>
+        <span class="skill">captura-vercel</span>
+        <span class="skill">informe-moderno-upselling</span>
+        <span class="skill">informe-moderno-prosegur</span>
+        <span class="skill">portfolio-ia-diario</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3><span class="icon">🔐</span> Operaciones seguras</h3>
+      <div class="skills">
+        <span class="skill blue">github-operaciones-seguras</span>
+        <span class="skill blue">botmaker-operaciones-seguras</span>
+        <span class="skill blue">control-oracle-openclaw</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -431,14 +603,14 @@
   <p class="lead">Esto no es un plan a futuro: ya está configurado, conectado y funcionando en la operación diaria.</p>
   <div class="grid">
     <div class="card"><span class="icon">📊</span><h3>Consolidado de campañas</h3><p>Consulto el estado actualizado por cliente, país y plataforma, calculo totales, CPV y disparo alertas cuando algo se sale de rango.</p></div>
+    <div class="card"><span class="icon">📡</span><h3>Radar operativo</h3><p>Cruzo upselling y campañas para detectar asesores bajo promedio, baja conversión con volumen alto y prioridades del día.</p></div>
     <div class="card"><span class="icon">📸</span><h3>Capturas y gráficos</h3><p>Filtro por cliente, país o métrica y envío capturas del dashboard listas para mostrar en una reunión o un chat interno.</p></div>
     <div class="card"><span class="icon">📧</span><h3>Gmail operativo</h3><p>Busco correos, resumo lo no leído, preparo respuestas y envío cuando se me pide explícitamente — el inbox como lista de acciones.</p></div>
     <div class="card"><span class="icon">📅</span><h3>Agenda y Calendar</h3><p>Reviso la agenda, creo reuniones, sumo invitados y redacto la descripción con objetivo y contexto previo.</p></div>
     <div class="card"><span class="icon">📁</span><h3>Drive y documentos</h3><p>Busco archivos por cliente o campaña, leo el contenido y devuelvo un resumen con los puntos accionables.</p></div>
     <div class="card"><span class="icon">👥</span><h3>Contactos y apodos</h3><p>Reconozco apodos internos, correos y chats de Telegram aprobados para que pidas acciones sin recordar identificadores.</p></div>
     <div class="card"><span class="icon">✍️</span><h3>Redacción GOUT</h3><p>Escribo correos, mensajes, minutas, resúmenes y follow-ups con un tono claro, profesional y consistente.</p></div>
-    <div class="card"><span class="icon">✅</span><h3>Pendientes y seguimiento</h3><p>Ordeno tareas por urgencia y responsable a partir de correos, agenda y contexto operativo del día.</p></div>
-    <div class="card"><span class="icon">📣</span><h3>Alertas de pautas</h3><p>Coordino avisos operativos ligados a pautas y campañas, con destinatarios validados y trazabilidad del pedido.</p></div>
+    <div class="card"><span class="icon">📄</span><h3>Informes ejecutivos</h3><p>Genero informes HTML y PDF con datos de upselling y campañas, listos para compartir con dirección.</p></div>
     <div class="card"><span class="icon">🧑‍💻</span><h3>GitHub operativo</h3><p>Audito repos, leo Actions, reviso estados y preparo cambios; cualquier escritura requiere una aprobación nueva y específica.</p></div>
   </div>
 </section>
@@ -446,56 +618,79 @@
 <!-- RUTINAS -->
 <section class="reveal">
   <div class="eyebrow">Rutinas que corren solas</div>
-  <h2>No espero que me pidan todo: hay procesos que ya disparo por mi cuenta</h2>
+  <h2>No espero que me pidan todo: estas rutinas ya disparo por mi cuenta</h2>
+  <p class="lead">Cinco procesos programados, cada uno en su horario, con entrega directa por Telegram.</p>
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <h3>Actualizado de campañas</h3>
-        <p>Estado por Google y Facebook, total del día, inversión, CPV real, detalle por cliente y país — con corrección de lógica para domingos sin actividad.</p>
-        <div class="tags"><span class="tag">Consolidado</span><span class="tag">Telegram</span><span class="tag">Alertas</span></div>
+        <h3>Radar de tecnología e IA <span class="hora">08:00 · todos los días</span></h3>
+        <p>Repaso novedades de IA, herramientas y ecosistema OpenClaw, y entrego un resumen curado para arrancar el día informado.</p>
+        <div class="tags"><span class="tag">Investigación</span><span class="tag">IA</span><span class="tag">Telegram</span></div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <h3>Alertas operativas de la mañana</h3>
-        <p>Reviso el Consolidado y su fecha de actualización, detecto CPV/CPB alto o anomalías, repaso la agenda del día y marco correos sin resolver.</p>
-        <div class="tags"><span class="tag">Mañana</span><span class="tag">Agenda</span><span class="tag">Correo</span></div>
+        <h3>Alerta de ventas y campañas <span class="hora">09:00 · lunes a sábado</span></h3>
+        <p>Estado por Google y Facebook, total del día, inversión, CPV real y detalle por cliente y país — con corrección de lógica para domingos sin actividad.</p>
+        <div class="tags"><span class="tag">Consolidado</span><span class="tag">CPV</span><span class="tag">Alertas</span></div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <h3>Capturas y evidencia visual</h3>
-        <p>CPV diario por cliente o país, ventas, inversión, conversión y tablas filtradas — y si Telegram no muestra la imagen, la reenvío como archivo.</p>
-        <div class="tags"><span class="tag">Gráficos</span><span class="tag">Tablas</span><span class="tag">PDF / PNG</span></div>
+        <h3>Eventos Latam <span class="hora">09:00 · todos los días</span></h3>
+        <p>Monitoreo fechas y eventos relevantes de los países donde operan las campañas: feriados, eventos comerciales y contexto que afecta la pauta.</p>
+        <div class="tags"><span class="tag">Latam</span><span class="tag">Contexto</span><span class="tag">Campañas</span></div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <h3>Comunicación y coordinación</h3>
-        <p>Envío reportes a quien corresponda, agendo reuniones con invitación, preparo mensajes ejecutivos y confirmo cada acción realizada.</p>
-        <div class="tags"><span class="tag">Gmail</span><span class="tag">Calendar</span><span class="tag">Contactos</span></div>
+        <h3>Alerta de interacciones <span class="hora">19:00 · todos los días</span></h3>
+        <p>Cierre del día: reviso la actividad y las interacciones de las campañas y aviso si algo quedó fuera de lo esperado.</p>
+        <div class="tags"><span class="tag">Cierre diario</span><span class="tag">Interacciones</span></div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <h3>Alertas de pautas y contactos aprobados</h3>
-        <p>Uso la base de contactos con apodos, correos y Telegram aprobados para enviar avisos a Nico, Martina, Kevin, Nico Laham o Flor cuando corresponde.</p>
-        <div class="tags"><span class="tag">Pautas</span><span class="tag">Apodos</span><span class="tag">Telegram aprobado</span></div>
+        <h3>Fútbol de la semana <span class="hora">10:00 · lunes</span></h3>
+        <p>No todo es trabajo: los lunes armo el panorama de los partidos prioritarios de la semana. Un asistente también se gana la confianza en los detalles.</p>
+        <div class="tags"><span class="tag">Extra</span><span class="tag">Lunes</span></div>
       </div>
     </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <h3>GitHub con permiso controlado</h3>
-        <p>Puedo leer repositorios, workflows, commits, issues y archivos; para crear, modificar o subir cambios siempre pido aprobación explícita antes.</p>
-        <div class="tags"><span class="tag">Repos</span><span class="tag">Actions</span><span class="tag">Aprobación</span></div>
-      </div>
-    </div>
+  </div>
+</section>
+
+<!-- COMO ESTOY CONSTRUIDO -->
+<section class="reveal">
+  <div class="eyebrow">Cómo estoy construido</div>
+  <h2>Debajo de la conversación hay ingeniería</h2>
+  <p class="lead">No soy un chatbot suelto: soy un agente sobre OpenClaw con herramientas propias, procedimientos y controles de seguridad, operando en infraestructura administrada.</p>
+  <div class="arch">
+    <header><span class="dots"><i></i><i></i><i></i></span> arquitectura de sudaka — vista simplificada</header>
+    <pre>
+<i>Telegram (texto / voz)</i>
+      │
+      ▼
+<b>OpenClaw</b> en Oracle Cloud ARM (Ubuntu · watchdog · acceso solo vía OCI Bastion)
+      │
+      ├── <b>Motor</b>: GPT-5.5 (Codex) + Llama 3.3 (tareas livianas) + Whisper (voz)
+      ├── <b>21 skills</b> a medida: campañas, Gmail, Calendar, Drive, GitHub, informes
+      ├── <b>Herramientas Python propias</b>: consolidado, radar operativo, correo con
+      │   apodos, reuniones, capturas, informes HTML/PDF
+      ├── <b>MCP de acciones seguras</b>: destinatarios validados y aprobación explícita
+      └── <b>Segundo agente</b>: "Sudaka Consultas" — acceso restringido para el equipo
+      │
+      ▼
+<i>Respuesta por Telegram: texto, audio, imagen, tabla o archivo</i></pre>
+  </div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+    <div class="card"><span class="icon">🧠</span><h3>Memoria y contexto</h3><p>Mantengo memoria operativa de contactos, clientes, umbrales y decisiones para no arrancar de cero en cada pedido.</p></div>
+    <div class="card"><span class="icon">🧩</span><h3>Multi-agente</h3><p>Además de mí existe "Sudaka Consultas", una versión restringida pensada para que el equipo consulte datos sin acceso a acciones sensibles.</p></div>
+    <div class="card"><span class="icon">🩺</span><h3>Siempre en línea</h3><p>Un watchdog supervisa mi proceso y lo reinicia si algo falla. La infraestructura se administra por sesiones de Bastion, sin puertos abiertos.</p></div>
   </div>
 </section>
 
@@ -506,10 +701,10 @@
   <div class="chat">
     <div class="bubble user">"Actualizado de campaña"</div>
     <div class="bubble bot">Consulto el Consolidado, armo el reporte con estado, totales, detalle y alertas, y te lo mando formateado por Telegram. <b>Listo en segundos.</b></div>
-    <div class="bubble user">"Reenviá eso a Martina"</div>
-    <div class="bubble bot">Identifico el contacto por su apodo y reenvío el reporte ya corregido — sin que tengas que buscar el correo ni el chat ID.</div>
-    <div class="bubble user">"Mandale el actualizado a Flor y agendá una reunión para mañana"</div>
-    <div class="bubble bot">Envío el reporte por Gmail <b>y</b> creo el evento con invitación en el horario indicado. Dos acciones, un solo pedido.</div>
+    <div class="bubble user">🎙️ <i>Nota de voz: "Mandale el actualizado a Martina y agendá una reunión para mañana"</i></div>
+    <div class="bubble bot">Transcribo el audio, identifico el contacto por su apodo, envío el reporte por Gmail <b>y</b> creo el evento con invitación. Dos acciones, un solo audio.</div>
+    <div class="bubble user">"¿Cómo vienen los asesores de upselling?"</div>
+    <div class="bubble bot">Corro el radar operativo: asesores bajo promedio, conversión por volumen y prioridades de campaña. Te devuelvo la lectura accionable, no la planilla cruda.</div>
     <div class="bubble user">"Avisame si hay cambios en main o falla el workflow"</div>
     <div class="bubble bot">Monitoreo la rama principal y GitHub Actions. Si detecto una modificación o un inconveniente en el workflow, te aviso por Telegram y mail con el detalle.</div>
   </div>
@@ -530,6 +725,11 @@
       <span class="icon">🛡️</span>
       <h3>Lo que no hago sin permiso</h3>
       <p>No borro correos, documentos ni datos. No modifico planillas ni repositorios sin aprobación. No invento enlaces ni umbrales. No expongo credenciales ni información sensible.</p>
+    </div>
+    <div class="card">
+      <span class="icon">👥</span>
+      <h3>Destinatarios validados</h3>
+      <p>Solo envío correos y mensajes a contactos aprobados de la base interna. Si el apodo no existe, no improviso: aviso y listo los disponibles.</p>
     </div>
   </div>
 </section>
@@ -559,7 +759,7 @@
 </section>
 
 <footer>
-  Presentación pública · Junio 2026 · Sudaka, asistente operativo conectado 24/7
+  Presentación pública · Julio 2026 · Sudaka, asistente operativo conectado 24/7 · Creado por <a href="../">Nicolás Díaz</a>
 </footer>
 
 <script>

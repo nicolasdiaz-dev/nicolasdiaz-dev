@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politica de privacidad - Agente Sudaka</title>
+<style>
+  :root{
+    --bg:#0a0e14;
+    --panel:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.1);
+    --green:#00d9a3;
+    --blue:#4ea1ff;
+    --text:#eef3f7;
+    --muted:#9fb0bf;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(ellipse 720px 420px at 15% -10%,rgba(0,217,163,.16),transparent 60%),
+      radial-gradient(ellipse 640px 520px at 90% 0%,rgba(78,161,255,.12),transparent 60%),
+      var(--bg);
+    line-height:1.65;
+  }
+  main{
+    width:min(880px,100%);
+    margin:0 auto;
+    padding:64px 24px 80px;
+  }
+  .badge{
+    display:inline-flex;
+    color:var(--green);
+    border:1px solid rgba(0,217,163,.25);
+    border-radius:999px;
+    padding:6px 13px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    background:rgba(0,217,163,.08);
+  }
+  h1{
+    margin-top:22px;
+    max-width:760px;
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.08;
+  }
+  h1 span{
+    background:linear-gradient(100deg,var(--green),var(--blue));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .updated{
+    margin-top:16px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  .panel{
+    margin-top:38px;
+    padding:30px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--panel);
+  }
+  h2{
+    margin-top:28px;
+    font-size:20px;
+  }
+  h2:first-child{margin-top:0}
+  p,li{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:15.5px;
+  }
+  ul{padding-left:20px}
+  a{color:var(--green)}
+  footer{
+    margin-top:34px;
+    color:var(--muted);
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="badge">Agente Sudaka</div>
+  <h1>Politica de privacidad de <span>Agente Sudaka</span></h1>
+  <p class="updated">Ultima actualizacion: 16 de julio de 2026</p>
+
+  <div class="panel">
+    <h2>1. Responsable</h2>
+    <p>Agente Sudaka es un asistente operativo personal administrado por Nicolas Diaz. Esta politica explica como se trata la informacion cuando se usa la integracion con LinkedIn.</p>
+
+    <h2>2. Informacion que puede utilizar la app</h2>
+    <p>La app puede solicitar permisos de LinkedIn para identificar al usuario autenticado y publicar contenido en LinkedIn cuando el usuario lo aprueba expresamente.</p>
+    <p>La app no solicita ni almacena contrasenas de LinkedIn.</p>
+
+    <h2>3. Uso de la informacion</h2>
+    <p>La informacion se utiliza unicamente para:</p>
+    <ul>
+      <li>Autenticar al usuario mediante LinkedIn.</li>
+      <li>Preparar publicaciones solicitadas por el usuario.</li>
+      <li>Publicar contenido en LinkedIn solo despues de una aprobacion explicita.</li>
+      <li>Verificar el resultado de acciones iniciadas por el usuario.</li>
+    </ul>
+
+    <h2>4. Publicaciones y aprobacion</h2>
+    <p>Agente Sudaka no publica contenido de forma automatica. Toda publicacion requiere una instruccion o aprobacion explicita del usuario antes de ejecutarse.</p>
+
+    <h2>5. Comparticion de datos</h2>
+    <p>No vendemos datos personales ni los compartimos con terceros para fines comerciales. La informacion solo se usa para operar la funcionalidad solicitada por el usuario.</p>
+
+    <h2>6. Conservacion y seguridad</h2>
+    <p>Las credenciales o tokens necesarios para operar la integracion se guardan en entornos controlados y no se publican en repositorios, chats ni paginas publicas.</p>
+
+    <h2>7. Eliminacion o revocacion</h2>
+    <p>El usuario puede revocar el acceso desde la configuracion de LinkedIn o solicitar que se eliminen las credenciales asociadas a la integracion.</p>
+
+    <h2>8. Contacto</h2>
+    <p>Para consultas sobre esta politica o sobre el uso de la integracion, contactar a Nicolas Diaz a traves de su perfil publico: <a href="https://www.linkedin.com/in/nicolas-diaz-641a17346">LinkedIn</a>.</p>
+  </div>
+
+  <footer>
+    <a href="./">Volver a Sudaka</a>
+  </footer>
+</main>
+</body>
+</html>

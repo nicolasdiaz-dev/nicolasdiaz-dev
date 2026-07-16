@@ -2,13 +2,13 @@
 
 **Especializado en agentes de IA, automatización operativa y reporting inteligente**
 
-🔗 **[Portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)** | 🔗 **[Sudaka — Asistente operativo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)** | 💼 **[LinkedIn](https://www.linkedin.com/in/nicolas-diaz-641a17346)** | 📧 **[Contacto](mailto:nicolas.diaz@gout.com.ar)**
+🔗 **[Portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)** | 🔗 **[Sudaka — Asistente operativo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)** | 💼 **[...]
 
 ---
 
 ## 📋 Resumen ejecutivo
 
-Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Me dedico a diseñar e implementar soluciones de negocio que conectan agentes de IA con canales reales (WhatsApp, Telegram, email) y transforman operaciones manuales en sistemas escalables.
+Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Me dedico a diseñar e implementar soluciones de negocio que conectan agentes de IA con [...]
 
 Con experiencia en **20+ repositorios** (mayoría privados en producción), trabajo en:
 
@@ -40,34 +40,62 @@ Desarrollo utilidades local-first: dictado de voz sin dependencias externas, con
 ## 🛠️ Stack tecnológico
 
 ### Lenguajes & Datos
-```
-Python | JavaScript | SQL | PowerShell | JSON | CSV | pandas | SQL (PostgreSQL)
-```
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+  <img src="https://img.shields.io/badge/Python-3776ab?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" />
+  <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+</div>
 
 ### IA & Agentes
-```
-Anthropic Claude | Claude Agent SDK | OpenAI | OpenClaw | Prompt Design | Tool Use | Clasificación de Intenciones | Conversational AI
-```
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+  <img src="https://img.shields.io/badge/Anthropic_Claude-1f1f1f?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iI0ZGRkZGRiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSI0Ii8+PC9zdmc+" />
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tool_Use-FF6B6B?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/Prompt_Design-4A90E2?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/Conversational_AI-00D084?style=for-the-badge&logoColor=white" />
+</div>
 
 ### Dashboards & Visualización
-```
-Streamlit | Power BI | Looker Studio | React + Vite | Plotly | Google Sheets | D3.js
-```
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/Power_BI-F2CC0C?style=for-the-badge&logo=powerbi&logoColor=black" />
+  <img src="https://img.shields.io/badge/Looker_Studio-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white" />
+  <img src="https://img.shields.io/badge/D3.js-F9A825?style=for-the-badge&logo=d3.js&logoColor=black" />
+</div>
 
 ### Automatización e Integraciones
-```
-GitHub Actions | Google Workspace APIs | Google Ads API | Meta Graph API | Botmaker API | SFTP/FTP | n8n | Webhooks | REST APIs
-```
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google_Workspace-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google_Ads_API-4285F4?style=for-the-badge&logo=google-ads&logoColor=white" />
+  <img src="https://img.shields.io/badge/Meta_Graph_API-1877F2?style=for-the-badge&logo=meta&logoColor=white" />
+  <img src="https://img.shields.io/badge/Webhooks-FF6B35?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/REST_APIs-009688?style=for-the-badge&logoColor=white" />
+</div>
 
 ### Cloud & Deploy
-```
-Google Cloud Run | Google Cloud Platform (GCP) | Oracle Cloud (OCI) | Supabase | Vercel | Render | Streamlit Cloud | GitHub Actions
-```
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />
+  <img src="https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" />
+</div>
 
 ### Plataformas Operativas
-```
-OpenClaw | Botmaker | NICE inContact | Google Workspace | Gmail | Calendar | Drive
-```
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
+  <img src="https://img.shields.io/badge/Botmaker-6C5CE7?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/NICE_inContact-005EB8?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google_Calendar-4285F4?style=for-the-badge&logo=google-calendar&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google_Drive-4285F4?style=for-the-badge&logo=google-drive&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+</div>
 
 ---
 
@@ -91,7 +119,7 @@ Agente de primera atención para el canal de ventas en WhatsApp. Filtra prospect
 ---
 
 #### **Sudaka / OpenClaw** — Asistente operativo
-Agente personal de soporte operativo desplegado en Oracle Cloud ARM. Accede a información, prepara reportes, ejecuta flujos controlados y asiste tareas recurrentes por Telegram con aprobación explícita.
+Agente personal de soporte operativo desplegado en Oracle Cloud ARM. Accede a información, prepara reportes, ejecuta flujos controlados y asiste tareas recurrentes por Telegram con aprobación ex[...]
 
 - Integración con Gmail, Calendar, Drive, GitHub  
 - Memoria contextual y skills por contexto  

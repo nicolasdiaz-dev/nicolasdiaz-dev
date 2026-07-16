@@ -2,7 +2,7 @@
 
 **Especializado en agentes de IA, automatización operativa y reporting inteligente**
 
-🔗 **[Portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)** | 🔗 **[Sudaka — Asistente operativo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)** | 💼 **[...]
+🔗 **[Portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)** | 🔗 **[Sudaka — Asistente operativo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)** | 💼 **[LinkedIn](https://www.linkedin.com/in/nicolas-diaz-641a17346)**
 
 ---
 
@@ -51,7 +51,7 @@ Desarrollo utilidades local-first: dictado de voz sin dependencias externas, con
 
 ### IA & Agentes
 <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
-  <img src="https://img.shields.io/badge/Anthropic_Claude-1f1f1f?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iI0ZGRkZGRiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSI0Ii8+PC9zdmc+" />
+  <img src="https://img.shields.io/badge/Anthropic_Claude-1f1f1f?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTEwIDJDNS41OCAyIDIgNS41OCAyIDEwczMuNTggOCA4IDggOC0zLjU4IDgtOC0zLjU4LTgtOC04eiIvPjwvc3ZnPg==" logoColor="white" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
   <img src="https://img.shields.io/badge/Tool_Use-FF6B6B?style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/badge/Prompt_Design-4A90E2?style=for-the-badge&logoColor=white" />
@@ -119,7 +119,7 @@ Agente de primera atención para el canal de ventas en WhatsApp. Filtra prospect
 ---
 
 #### **Sudaka / OpenClaw** — Asistente operativo
-Agente personal de soporte operativo desplegado en Oracle Cloud ARM. Accede a información, prepara reportes, ejecuta flujos controlados y asiste tareas recurrentes por Telegram con aprobación ex[...]
+Agente personal de soporte operativo desplegado en Oracle Cloud ARM. Accede a información, prepara reportes, ejecuta flujos controlados y asiste tareas recurrentes por Telegram con aprobación e[...]
 
 - Integración con Gmail, Calendar, Drive, GitHub  
 - Memoria contextual y skills por contexto  

@@ -350,6 +350,122 @@
 
     .capability p { color: var(--muted); margin: 0; }
 
+    /* ---------- GitHub profiles ---------- */
+    .profiles-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .profile-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .profile-box h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.12;
+    }
+
+    .profile-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .profile-box ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: #33443f;
+      display: grid;
+      gap: 8px;
+    }
+
+    .profile-box.private {
+      background: #101816;
+      color: white;
+      border-color: #243530;
+    }
+
+    .profile-box.private p,
+    .profile-box.private ul {
+      color: #dce9e5;
+    }
+
+    .profile-box .profile-label {
+      width: fit-content;
+      margin-bottom: 14px;
+      border-radius: 6px;
+      background: #eef4f1;
+      border: 1px solid var(--line);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      padding: 5px 8px;
+    }
+
+    .profile-box.private .profile-label {
+      background: rgba(216, 247, 106, .12);
+      border-color: rgba(216, 247, 106, .32);
+      color: var(--lime);
+    }
+
+    .profile-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .recruiter-strip {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #eef4f1;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: minmax(220px, .75fr) 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .recruiter-strip b {
+      display: block;
+      color: var(--teal);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .recruiter-strip p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .recruiter-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .recruiter-points span {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      padding: 12px;
+      color: #27443d;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     /* ---------- Featured projects ---------- */
     .featured-grid {
       display: grid;
@@ -646,8 +762,13 @@
       .project-grid,
       .workflow,
       .code-grid,
-      .capability-grid {
+      .capability-grid,
+      .profiles-layout {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .recruiter-strip {
+        grid-template-columns: 1fr;
       }
 
       .tool-grid { grid-template-columns: repeat(3, 1fr); }
@@ -668,6 +789,8 @@
       .workflow,
       .code-grid,
       .capability-grid,
+      .profiles-layout,
+      .recruiter-points,
       .metrics {
         grid-template-columns: 1fr;
       }
@@ -698,6 +821,7 @@
       </a>
       <div class="nav-links">
         <a href="#stack">Stack</a>
+        <a href="#perfiles">Perfiles</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#codigo">Código</a>
         <a href="#experiencia">Experiencia</a>
@@ -788,6 +912,63 @@
             <b>Ads &amp; Performance Automation</b>
             <p>Extracción, normalización y lectura diaria de Google Ads y Meta: inversión, ventas, CPV, proyecciones y reportes ejecutivos accionables.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfiles">
+      <div class="shell">
+        <div class="section-head reveal">
+          <h2>Mapa de perfiles GitHub</h2>
+          <p>Uso dos perfiles con objetivos distintos: uno público para mostrar proyectos abiertos y otro developer para explicar trabajo técnico real, incluyendo repositorios privados sin exponer información sensible.</p>
+        </div>
+
+        <div class="profiles-layout reveal">
+          <article class="profile-box">
+            <div>
+              <span class="profile-label">Perfil público</span>
+              <h3>nicodiax22</h3>
+              <p>Es la puerta de entrada simple para recruiters y personas que quieren ver repositorios navegables, demos y una lectura rápida de mi perfil.</p>
+              <ul>
+                <li>Repositorios públicos con datos ficticios o datasets abiertos.</li>
+                <li>Proyectos de BI, Power BI, Streamlit, Python y análisis.</li>
+                <li>Portfolio público con foco en lectura rápida y links claros.</li>
+              </ul>
+            </div>
+            <div class="profile-actions">
+              <a class="button secondary" href="https://github.com/nicodiax22">Ver GitHub público</a>
+              <a class="button secondary" href="https://nicodiax22.github.io/nicodiax22/">Ver portfolio público</a>
+            </div>
+          </article>
+
+          <article class="profile-box private">
+            <div>
+              <span class="profile-label">Perfil developer</span>
+              <h3>nicolasdiaz-dev</h3>
+              <p>Es el perfil donde resumo el trabajo de desarrollo más fuerte: agentes, dashboards, automatizaciones e integraciones productivas.</p>
+              <ul>
+                <li>Repositorios privados descriptos a nivel de producto, arquitectura y stack.</li>
+                <li>Casos reales de IA aplicada a operaciones, reporting y contact center.</li>
+                <li>Presentación profesional orientada a impacto, criterio técnico y seguridad.</li>
+              </ul>
+            </div>
+            <div class="profile-actions">
+              <a class="button" href="https://github.com/nicolasdiaz-dev">Ver cuenta developer</a>
+              <a class="button secondary" href="sudaka/">Ver Sudaka</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="recruiter-strip reveal">
+          <div>
+            <b>Lectura para recruiting</b>
+            <p>La idea es que un recruiter entienda rápido que no son demos aisladas: hay problemas reales, stack concreto, despliegues, seguridad y resultados operativos.</p>
+          </div>
+          <div class="recruiter-points">
+            <span>Impacto: automatización, menos tareas manuales y mejor seguimiento.</span>
+            <span>Stack: Python, React, GCP, OCI, Supabase, APIs y GitHub Actions.</span>
+            <span>Criterio: privacidad, aprobaciones, datos sanitizados y repos privados cuidados.</span>
+          </div>
         </div>
       </div>
     </section>

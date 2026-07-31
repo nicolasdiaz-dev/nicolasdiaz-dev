@@ -21,6 +21,30 @@ Experiencia en **producción real** con Google Cloud Run, Oracle Cloud, Supabase
 
 ---
 
+## 🧭 Cómo leer mis perfiles de GitHub
+
+Trabajo con dos perfiles porque cumplen funciones distintas dentro del portfolio:
+
+### Perfil público: [`nicodiax22`](https://github.com/nicodiax22)
+
+Es la puerta de entrada simple para ver repositorios abiertos, demos y proyectos navegables.
+
+- Proyectos con datos ficticios, datasets abiertos o descripciones sanitizadas.
+- Foco en BI, Power BI, Streamlit, Python, dashboards y análisis.
+- Ideal para una primera lectura rápida del perfil técnico.
+
+### Perfil developer: [`nicolasdiaz-dev`](https://github.com/nicolasdiaz-dev)
+
+Es el perfil donde resumo el trabajo de desarrollo más fuerte, incluyendo repositorios privados explicados a nivel de producto y arquitectura.
+
+- Agentes de IA, dashboards, pipelines, integraciones y automatizaciones productivas.
+- Casos reales presentados sin credenciales, datos internos ni información sensible.
+- Foco para recruiters: impacto, stack, criterio técnico, despliegue y seguridad.
+
+La lectura completa está en el [portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/), que conecta ambos perfiles y separa claramente qué es público, qué es privado y qué se muestra sólo como caso profesional.
+
+---
+
 ## 🎯 Qué hago
 
 **Automatización operativa**  

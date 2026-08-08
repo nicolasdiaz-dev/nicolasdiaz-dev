@@ -375,64 +375,31 @@ def meta_daily_insights(account_id: str, since: str, until: str) -> list[dict]:
     return rows
 ```
 
-### Inversión y CPV por campaña (SQL sobre Supabase)
-```sql
-with diario as (
-  select c.pais, c.campania, d.fecha,
-         sum(d.inversion) as inversion,
-         sum(d.ventas)    as ventas
-  from metricas_diarias d
-  join campanias c on c.id = d.campania_id
-  where d.fecha >= current_date - interval '30 days'
-  group by c.pais, c.campania, d.fecha
+### Inversión por campaña desde Supabase
+```python
+import os
+from supabase import create_client
+
+# La service key sólo vive en el servidor o en el runner de Actions:
+# al navegador nunca baja más que la anon key, que es de sólo lectura.
+supabase = create_client(
+    os.environ["SUPABASE_URL"],
+    os.environ["SUPABASE_SERVICE_KEY"],
 )
-select pais, campania,
-       sum(inversion) as inversion_30d,
-       sum(ventas)    as ventas_30d,
-       -- nullif evita la división por cero cuando no hubo ventas
-       round(sum(inversion) / nullif(sum(ventas), 0), 2) as cpv
-from diario
-group by pais, campania
-having sum(ventas) > 0
-order by inversion_30d desc;
-```
 
-### El workflow que mantiene vivo el motor de la operación
-```yaml
-name: botmaker-auto
+def inversion_por_campania(desde: str, limite: int = 50) -> list[dict]:
+    # metricas_por_campania es una vista que ya resuelve el group by:
+    # el cliente REST filtra y ordena, pero no agrega.
+    respuesta = (
+        supabase.table("metricas_por_campania")
+        .select("pais, campania, inversion, ventas")
+        .gte("fecha", desde)
+        .order("inversion", desc=True)
+        .limit(limite)
+        .execute()
+    )
 
-on:
-  schedule:
-    # cada 2 horas, todos los días — el cron de Actions corre en UTC
-    - cron: "0 */2 * * *"
-  workflow_dispatch:          # y a mano cuando hace falta re-correr un tramo
-
-concurrency:
-  group: botmaker-auto
-  # si una corrida se demora, la siguiente espera en vez de arrancar en
-  # paralelo: dos jobs escribiendo la misma planilla se pisan
-  cancel-in-progress: false
-
-jobs:
-  extraer:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20       # corta si la API queda colgada, no consume la cuota
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-
-      - run: pip install -r requirements.txt
-
-      - name: Extraer sesiones y publicar en Sheets
-        env:
-          # las credenciales viven en los secrets del repo, nunca versionadas
-          BOTMAKER_TOKEN: ${{ secrets.BOTMAKER_TOKEN }}
-          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-        run: python -m pipeline.run
+    return respuesta.data
 ```
 
 ---

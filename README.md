@@ -244,15 +244,15 @@ Campañas Google Ads y Facebook: KPIs del mes, proyecciones, funnel impresiones�
 
 Cuatro pipelines que eliminaron la descarga manual de reportes.
 
-Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía **cada dos horas de 9 a 21**. Hoy corren solos con GitHub Actions: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga.
+Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía **cada dos horas dentro del horario de trabajo, de 9 a 21**. Hoy corren solos con GitHub Actions **cada dos horas y las 24 horas**: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga, también de madrugada y los fines de semana.
 
 Lo que se ganó no es sólo tiempo. Se fue la ventana de **error manual** —el reporte bajado con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo— y el tiempo perdido saltando entre cuatro plataformas distintas para juntar la misma foto del día.
 
 | Pipeline | Cadencia | Fuente |
 |---|---|---|
-| **Botmaker_auto** — sesiones y métricas con caché que evita reprocesar lo ya consolidado, publicadas por cola en Sheets | Cada 2 hs · 9 a 21 | Botmaker API |
-| **NICE_AUTO** — reportería de contact center por campaña, acumulados del mes y control de duplicados sobre runner de Windows | Cada 2 hs · 9 a 21 | NICE inContact |
-| **CRM_SFTP** — descarga, limpieza y carga de gestiones, productividad y tickets entrantes y salientes | Cada 2 hs · 9 a 21 | Neotel · SFTP/FTP |
+| **Botmaker_auto** — sesiones y métricas con caché que evita reprocesar lo ya consolidado, publicadas por cola en Sheets | Cada 2 hs · 24/7 | Botmaker API |
+| **NICE_AUTO** — reportería de contact center por campaña, acumulados del mes y control de duplicados sobre runner de Windows | Cada 2 hs · 24/7 | NICE inContact |
+| **CRM_SFTP** — descarga, limpieza y carga de gestiones, productividad y tickets entrantes y salientes | Cada 2 hs · 24/7 | Neotel · SFTP/FTP |
 | **Sincronización Drive** — replica los reportes de Meta y Google Ads manteniendo copias ordenadas para el resto de los pipelines | Mensual | Google Drive API |
 
 **Stack:** Python · PowerShell · pandas · GitHub Actions · Google Sheets API · Google Drive API
@@ -308,25 +308,6 @@ Dictado 100% local para escribir, programar y responder mensajes. `Ctrl+Space`, 
 
 ## 💡 Patrones & Código
 
-### Webhook de agente con deduplicación
-```python
-@app.route("/agente/webhook", methods=["POST"])
-def receive_message():
-    payload = request.get_json(force=True)
-    message_id = payload["_id"]
-
-    if already_processed(message_id):
-        return {"status": "duplicate"}, 200
-
-    mark_processed(message_id)
-    reply = agent.respond(
-        contact_id=payload["contactId"],
-        text=payload["text"],
-    )
-    botmaker.send(payload["chatChannelId"], reply)
-    return {"status": "ok"}, 200
-```
-
 ### Google Sheets con Service Account
 ```python
 from google.oauth2.service_account import Credentials
@@ -369,18 +350,51 @@ def campaign_daily_query(customer_id: str, start_date: str, end_date: str):
     )
 ```
 
-### Flujo operativo seguro con aprobación
+### Lectura diaria de Meta Ads con paginación
 ```python
-def run_sensitive_action(action_name: str, payload: dict, approved: bool) -> str:
-    if not approved:
-        return "Pendiente de aprobación explícita"
+def meta_daily_insights(account_id: str, since: str, until: str) -> list[dict]:
+    url = f"{GRAPH}/act_{account_id}/insights"
+    params = {
+        "level": "campaign",
+        "time_increment": 1,
+        "time_range": json.dumps({"since": since, "until": until}),
+        "fields": "campaign_name,spend,impressions,clicks,actions",
+        "access_token": ACCESS_TOKEN,
+    }
 
-    audit_log.info("running_action", extra={
-        "action": action_name,
-        "payload_keys": sorted(payload.keys()),
-    })
+    rows: list[dict] = []
+    while url:
+        r = requests.get(url, params=params, timeout=60)
+        r.raise_for_status()
+        page = r.json()
+        rows.extend(page["data"])
+        # el cursor de la próxima página ya viene con todo en la URL
+        url = page.get("paging", {}).get("next")
+        params = None
 
-    return execute_controlled_action(action_name, payload)
+    return rows
+```
+
+### Inversión y CPV por campaña (SQL sobre Supabase)
+```sql
+with diario as (
+  select c.pais, c.campania, d.fecha,
+         sum(d.inversion) as inversion,
+         sum(d.ventas)    as ventas
+  from metricas_diarias d
+  join campanias c on c.id = d.campania_id
+  where d.fecha >= current_date - interval '30 days'
+  group by c.pais, c.campania, d.fecha
+)
+select pais, campania,
+       sum(inversion) as inversion_30d,
+       sum(ventas)    as ventas_30d,
+       -- nullif evita la división por cero cuando no hubo ventas
+       round(sum(inversion) / nullif(sum(ventas), 0), 2) as cpv
+from diario
+group by pais, campania
+having sum(ventas) > 0
+order by inversion_30d desc;
 ```
 
 ---
@@ -398,7 +412,7 @@ def run_sensitive_action(action_name: str, payload: dict, approved: bool) -> str
 
 ## 📬 Conecta conmigo
 
-📧 **Email:** [nicolas.diaz@gout.com.ar](mailto:nicolas.diaz@gout.com.ar)
+📧 **Email:** [nicodiax22@gmail.com](mailto:nicodiax22@gmail.com)
 🔗 **GitHub:** [@nicolasdiaz-dev](https://github.com/nicolasdiaz-dev)
 💼 **LinkedIn:** [nicolas-diaz-641a17346](https://www.linkedin.com/in/nicolas-diaz-641a17346)
 🌐 **Portfolio:** [nicolasdiaz-dev.github.io](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)

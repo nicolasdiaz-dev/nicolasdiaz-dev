@@ -1271,7 +1271,7 @@
           <div class="actions">
             <a class="button" href="#proyectos">Ver proyectos</a>
             <a class="button secondary" href="sudaka/">Conocer a Sudaka</a>
-            <a class="button secondary" href="mailto:nicolas.diaz@gout.com.ar">Contactar</a>
+            <a class="button secondary" href="mailto:nicodiax22@gmail.com">Contactar</a>
           </div>
         </div>
 
@@ -1285,7 +1285,7 @@
               <div class="signature-line"></div>
               <div class="contact-row">
                 <span>Buenos Aires, Argentina</span>
-                <span>nicolas.diaz@gout.com.ar</span>
+                <span>nicodiax22@gmail.com</span>
               </div>
             </div>
           </div>
@@ -1484,15 +1484,15 @@
             <span class="chip">Motor de la operación</span>
             <h3>Cuatro pipelines que eliminaron la descarga manual de reportes</h3>
             <p>
-              <span class="before">Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía cada dos horas de 9 a 21.</span>
-              Hoy corren solos con GitHub Actions: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga. Se fue el tiempo perdido saltando entre plataformas y, sobre todo, el error manual —el reporte que se bajó con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo.
+              <span class="before">Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía cada dos horas dentro del horario de trabajo, de 9 a 21.</span>
+              Hoy corren solos con GitHub Actions, cada dos horas y las 24 horas: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga, también de madrugada y los fines de semana. Se fue el tiempo perdido saltando entre plataformas y, sobre todo, el error manual —el reporte que se bajó con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo.
             </p>
           </div>
 
           <div class="engine-stats">
             <div>
               <strong>cada 2 hs</strong>
-              <span>de 9 a 21, sin intervención humana</span>
+              <span>las 24 horas, sin intervención humana</span>
             </div>
             <div>
               <strong>4 plataformas</strong>
@@ -1506,21 +1506,21 @@
 
           <div class="engine-grid">
             <article class="pipeline">
-              <span class="cadence">Cada 2 hs · 9 a 21</span>
+              <span class="cadence">Cada 2 hs · 24/7</span>
               <h4>Botmaker_auto</h4>
               <p>Extrae sesiones y métricas de la API con caché que evita reprocesar lo ya consolidado, y publica por cola en Sheets.</p>
               <span class="src">Botmaker API</span>
             </article>
 
             <article class="pipeline">
-              <span class="cadence">Cada 2 hs · 9 a 21</span>
+              <span class="cadence">Cada 2 hs · 24/7</span>
               <h4>NICE_AUTO</h4>
               <p>Reportería de contact center por campaña, con acumulados del mes y control de duplicados sobre runner de Windows.</p>
               <span class="src">NICE inContact</span>
             </article>
 
             <article class="pipeline">
-              <span class="cadence">Cada 2 hs · 9 a 21</span>
+              <span class="cadence">Cada 2 hs · 24/7</span>
               <h4>CRM_SFTP</h4>
               <p>Descarga, limpia y carga los reportes operativos desde SFTP/FTP: gestiones, productividad y tickets entrantes y salientes.</p>
               <span class="src">Neotel · SFTP/FTP</span>
@@ -1782,30 +1782,9 @@
       <div class="shell">
         <div class="section-head reveal">
           <h2>Ejemplos de código</h2>
-          <p>Snippets sanitizados de patrones que uso en proyectos reales: webhooks con deduplicación, cuentas de servicio, Ads y acciones con aprobación.</p>
+          <p>Snippets sanitizados de patrones que uso en proyectos reales: cuentas de servicio de Google, lectura diaria de Google y Meta Ads, y consultas SQL sobre Supabase.</p>
         </div>
         <div class="code-grid reveal">
-          <article class="code-card">
-            <header>
-              <h3>Webhook con deduplicación</h3>
-              <span class="pill">Flask · Agentes</span>
-            </header>
-            <pre><code>@app.route("/agente/webhook", methods=["POST"])
-<span class="token">def</span> receive_message():
-    payload = request.get_json(force=True)
-    message_id = payload["_id"]
-
-    <span class="token">if</span> already_processed(message_id):
-        <span class="token">return</span> {"status": "duplicate"}, 200
-
-    mark_processed(message_id)
-    reply = agent.respond(
-        contact_id=payload["contactId"],
-        text=payload["text"],
-    )
-    botmaker.send(payload["chatChannelId"], reply)
-    <span class="token">return</span> {"status": "ok"}, 200</code></pre>
-          </article>
           <article class="code-card">
             <header>
               <h3>Google Sheets con service account</h3>
@@ -1855,22 +1834,54 @@ sheets = build("sheets", "v4", credentials=credentials)
           </article>
           <article class="code-card">
             <header>
-              <h3>Acción sensible con aprobación</h3>
-              <span class="pill">OpenClaw · Ops</span>
+              <h3>Consulta diaria de Meta Ads</h3>
+              <span class="pill">Graph API · KPIs</span>
             </header>
-            <pre><code><span class="token">def</span> run_sensitive_action(action_name, payload, approved):
-    <span class="token">if</span> not approved:
-        <span class="token">return</span> "Pendiente de aprobación explícita"
+            <pre><code><span class="token">def</span> meta_daily_insights(account_id, since, until):
+    url = f"{GRAPH}/act_{account_id}/insights"
+    params = {
+        "level": "campaign",
+        "time_increment": 1,
+        "time_range": json.dumps({"since": since, "until": until}),
+        "fields": "campaign_name,spend,impressions,clicks,actions",
+        "access_token": ACCESS_TOKEN,
+    }
 
-    audit_log.info("running_action", extra={
-        "action": action_name,
-        "payload_keys": sorted(payload.keys()),
-    })
+    rows = []
+    <span class="token">while</span> url:
+        r = requests.get(url, params=params, timeout=60)
+        r.raise_for_status()
+        page = r.json()
+        rows.extend(page["data"])
+        <span class="token">#</span> el cursor de la próxima página ya viene con todo en la URL
+        url = page.get("paging", {}).get("next")
+        params = None
 
-    <span class="token">return</span> execute_controlled_action(
-        action_name,
-        payload,
-    )</code></pre>
+    <span class="token">return</span> rows</code></pre>
+          </article>
+          <article class="code-card">
+            <header>
+              <h3>Inversión y CPV por campaña</h3>
+              <span class="pill">SQL · Supabase</span>
+            </header>
+            <pre><code><span class="token">with</span> diario <span class="token">as</span> (
+  <span class="token">select</span> c.pais, c.campania, d.fecha,
+         sum(d.inversion) <span class="token">as</span> inversion,
+         sum(d.ventas)    <span class="token">as</span> ventas
+  <span class="token">from</span> metricas_diarias d
+  <span class="token">join</span> campanias c <span class="token">on</span> c.id = d.campania_id
+  <span class="token">where</span> d.fecha >= current_date - interval '30 days'
+  <span class="token">group by</span> c.pais, c.campania, d.fecha
+)
+<span class="token">select</span> pais, campania,
+       sum(inversion) <span class="token">as</span> inversion_30d,
+       sum(ventas)    <span class="token">as</span> ventas_30d,
+       <span class="token">--</span> nullif evita la división por cero cuando no hubo ventas
+       round(sum(inversion) / nullif(sum(ventas), 0), 2) <span class="token">as</span> cpv
+<span class="token">from</span> diario
+<span class="token">group by</span> pais, campania
+<span class="token">having</span> sum(ventas) > 0
+<span class="token">order by</span> inversion_30d <span class="token">desc</span>;</code></pre>
           </article>
         </div>
       </div>
@@ -1916,7 +1927,7 @@ sheets = build("sheets", "v4", credentials=credentials)
         ·
         <a href="https://www.linkedin.com/in/nicolas-diaz-641a17346">LinkedIn</a>
         ·
-        <a href="mailto:nicolas.diaz@gout.com.ar">Email</a>
+        <a href="mailto:nicodiax22@gmail.com">Email</a>
       </div>
     </div>
   </footer>

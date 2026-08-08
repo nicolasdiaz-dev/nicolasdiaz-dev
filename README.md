@@ -187,23 +187,35 @@ Monitorea inversión, ventas y proyecciones de campañas por cliente y región (
 ## 📊 Dashboards & Reporting
 
 #### **Churn DirecTV** `EN PRODUCCIÓN`
-Mide qué porcentaje de las ventas activadas termina cancelado, con ventana de tres meses: en julio se evalúa lo activado en abril. Abre el churn por **campaña, skill, supervisor, asesor y medio de pago**, y permite seguir su comportamiento en el tiempo.
+Tablero de churn para la operación de call center. Un **cierre** mide una cohorte de ventas cuando llega a su tercer mes de vida: el cierre de julio no mide lo vendido en julio, mide **cuántas de las ventas de abril siguen activas tres meses después**.
 
-**Stack:** Vercel · Google Sheets API · análisis por cohortes
+- Dos vistas: el cierre en curso con todo el detalle, y el acumulado del año
+- Cortes por campaña (Hunter, Web, Upselling), skill, supervisor y ranking por asesor
+- **Cortes transversales que no existen en la planilla** —forma de pago, turno, canal, promoción— calculados agrupando la hoja cruda. Ahí salió el hallazgo del mes: **23,8% de churn pagando con wallet contra 6,3% con tarjeta**
+- El selector de cortes se arma con las columnas que trae la hoja, no con una lista fija
+- Curva de vida (en qué mes de vida se dan de baja) y motivo tipificado de las bajas
+- La agregación corre en el servidor: **23.000+ filas** en la planilla se resuelven en un JSON de ~75 KB con caché de 5 minutos
+- Service account en **modo sólo lectura**: el tablero nunca escribe en el sheet
+
+**Stack:** React 19 · Vite · Recharts · funciones Python en Vercel · gspread · Google Sheets API
+
+🔗 **[churn-directv.vercel.app](https://churn-directv.vercel.app)**
 
 ---
 
-#### **Upselling DirecTV** `EN PRODUCCIÓN`
-Seguimiento de la campaña que contacta clientes prepagos para persuadirlos de migrar a plan mensual: gestiones, conversión a mensual, performance por asesor y evolución diaria.
+#### **Upselling** `EN PRODUCCIÓN`
+Seguimiento de la campaña que contacta clientes prepagos para migrarlos a plan mensual. Tres vistas —Diario, Mensual y Acumulado— con conversión, presentismo, rankings y comparación contra el mes anterior a la misma altura del mes.
 
-**Stack:** Vercel · Google Sheets API · KPIs de conversión
+- **Una sola definición de cada tasa**, en un módulo compartido que importan backend y frontend, para que no existan dos fórmulas de la misma métrica
+- Las tasas de los agregados se **recalculan sobre las métricas base**, porque promediar tasas ya calculadas da otro número
+- Payload optimizado: sólo los últimos dos meses viajan con detalle diario. Abrir la app pasó de **720 KB a 222 KB**, y ese número ya no crece con el historial
+- Login con cookie firmada (HMAC), comparación timing-safe y rate limit
+- Suite de Vitest sobre parseo del sheet, tasas, caché y agregación
+- Modo oscuro con preferencia guardada
 
----
+**Stack:** React 19 · Vite · Recharts · Vercel Serverless · Google Sheets API · Vitest
 
-#### **Movistar México — Dashboard ADS** `EN PRODUCCIÓN`
-Campañas Google Ads y Facebook: KPIs del mes, proyecciones, funnel impresiones→ventas, detalle diario.
-
-**Stack:** Python · Streamlit · Plotly · gspread
+🔗 **[reporte-upselling.vercel.app](https://reporte-upselling.vercel.app)**
 
 ---
 
@@ -221,33 +233,39 @@ Monitoreo del comportamiento de llamadas y ventanas operativas de DirecTV Argent
 
 ---
 
-## ⚙️ Pipelines automatizados
+#### **Movistar México — Dashboard ADS** `EN PRODUCCIÓN`
+Campañas Google Ads y Facebook: KPIs del mes, proyecciones, funnel impresiones→ventas, detalle diario.
 
-#### **Botmaker_auto** `WORKFLOW MENSUAL`
-Extrae sesiones y métricas desde la API de Botmaker con caché inteligente para no reprocesar datos consolidados, y publica reportes por cola en Sheets.
-
-**Stack:** Python · Botmaker API · Google Sheets API · GitHub Actions
+**Stack:** Python · Streamlit · Plotly · gspread
 
 ---
 
-#### **NICE_AUTO** `WORKFLOW DIARIO`
-Descarga diaria de NICE inContact, filtro por campaña, acumulados mensuales y control de duplicados.
+## ⚙️ Motor de la operación
 
-**Stack:** PowerShell · NICE inContact · Google Sheets API · GitHub Actions
+Cuatro pipelines que eliminaron la descarga manual de reportes.
+
+Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía **cada dos horas de 9 a 21**. Hoy corren solos con GitHub Actions: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga.
+
+Lo que se ganó no es sólo tiempo. Se fue la ventana de **error manual** —el reporte bajado con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo— y el tiempo perdido saltando entre cuatro plataformas distintas para juntar la misma foto del día.
+
+| Pipeline | Cadencia | Fuente |
+|---|---|---|
+| **Botmaker_auto** — sesiones y métricas con caché que evita reprocesar lo ya consolidado, publicadas por cola en Sheets | Cada 2 hs · 9 a 21 | Botmaker API |
+| **NICE_AUTO** — reportería de contact center por campaña, acumulados del mes y control de duplicados sobre runner de Windows | Cada 2 hs · 9 a 21 | NICE inContact |
+| **CRM_SFTP** — descarga, limpieza y carga de gestiones, productividad y tickets entrantes y salientes | Cada 2 hs · 9 a 21 | Neotel · SFTP/FTP |
+| **Sincronización Drive** — replica los reportes de Meta y Google Ads manteniendo copias ordenadas para el resto de los pipelines | Mensual | Google Drive API |
+
+**Stack:** Python · PowerShell · pandas · GitHub Actions · Google Sheets API · Google Drive API
 
 ---
 
-#### **CRM_SFTP** `WORKFLOW DIARIO`
-Descarga, limpieza y carga desde SFTP/FTP hacia hojas de seguimiento (gestiones, productividad, tickets).
+## 🌎 Presencia regional
 
-**Stack:** Python · pandas · SFTP/FTP · Google Sheets API
+Los dashboards y pipelines que construyo procesan campañas que operan en **seis países de Latinoamérica** —Argentina, Colombia, Chile, Perú, México y Uruguay— con sites propios en Argentina, Perú y Colombia.
 
----
+**Campañas que reporto:** DirecTV · Movistar · Claro · Prosegur · Payway · Prisma · Zaaz Perú
 
-#### **Sincronización Drive Ads** `WORKFLOW PROGRAMADO`
-Replica los archivos de reportes de Meta y Google Ads en Drive, manteniendo copias organizadas y disponibles para el resto de los pipelines.
-
-**Stack:** Python · Google Drive API · GitHub Actions
+Cada campaña suma sus propias cuentas de Ads, colas de contact center y planillas de seguimiento. Consolidar todo eso en una sola lectura diaria es el trabajo que automatizan estos proyectos.
 
 ---
 

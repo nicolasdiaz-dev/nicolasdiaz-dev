@@ -397,6 +397,44 @@ having sum(ventas) > 0
 order by inversion_30d desc;
 ```
 
+### El workflow que mantiene vivo el motor de la operación
+```yaml
+name: botmaker-auto
+
+on:
+  schedule:
+    # cada 2 horas, todos los días — el cron de Actions corre en UTC
+    - cron: "0 */2 * * *"
+  workflow_dispatch:          # y a mano cuando hace falta re-correr un tramo
+
+concurrency:
+  group: botmaker-auto
+  # si una corrida se demora, la siguiente espera en vez de arrancar en
+  # paralelo: dos jobs escribiendo la misma planilla se pisan
+  cancel-in-progress: false
+
+jobs:
+  extraer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20       # corta si la API queda colgada, no consume la cuota
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Extraer sesiones y publicar en Sheets
+        env:
+          # las credenciales viven en los secrets del repo, nunca versionadas
+          BOTMAKER_TOKEN: ${{ secrets.BOTMAKER_TOKEN }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: python -m pipeline.run
+```
+
 ---
 
 ## 🎓 Áreas de especialización

@@ -854,6 +854,11 @@
       flex-direction: column;
     }
 
+    .code-card.wide {
+      grid-column: 1 / -1;
+      min-height: 0;
+    }
+
     .code-card header {
       display: flex;
       justify-content: space-between;
@@ -1782,7 +1787,7 @@
       <div class="shell">
         <div class="section-head reveal">
           <h2>Ejemplos de código</h2>
-          <p>Snippets sanitizados de patrones que uso en proyectos reales: cuentas de servicio de Google, lectura diaria de Google y Meta Ads, y consultas SQL sobre Supabase.</p>
+          <p>Snippets sanitizados de patrones que uso en proyectos reales: cuentas de servicio de Google, lectura diaria de Google y Meta Ads, consultas SQL sobre Supabase y el workflow programado que sostiene los pipelines.</p>
         </div>
         <div class="code-grid reveal">
           <article class="code-card">
@@ -1882,6 +1887,46 @@ sheets = build("sheets", "v4", credentials=credentials)
 <span class="token">group by</span> pais, campania
 <span class="token">having</span> sum(ventas) > 0
 <span class="token">order by</span> inversion_30d <span class="token">desc</span>;</code></pre>
+          </article>
+          <article class="code-card wide">
+            <header>
+              <h3>El workflow que mantiene vivo el motor de la operación</h3>
+              <span class="pill">GitHub Actions · Cron</span>
+            </header>
+            <pre><code><span class="token">name:</span> botmaker-auto
+
+<span class="token">on:</span>
+  schedule:
+    <span class="token">#</span> cada 2 horas, todos los días — el cron de Actions corre en UTC
+    - cron: "0 */2 * * *"
+  workflow_dispatch:          <span class="token">#</span> y a mano cuando hace falta re-correr un tramo
+
+<span class="token">concurrency:</span>
+  group: botmaker-auto
+  <span class="token">#</span> si una corrida se demora, la siguiente espera en vez de arrancar en
+  <span class="token">#</span> paralelo: dos jobs escribiendo la misma planilla se pisan
+  cancel-in-progress: false
+
+<span class="token">jobs:</span>
+  extraer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20       <span class="token">#</span> corta si la API queda colgada, no consume la cuota
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Extraer sesiones y publicar en Sheets
+        env:
+          <span class="token">#</span> las credenciales viven en los secrets del repo, nunca versionadas
+          BOTMAKER_TOKEN: ${{ secrets.BOTMAKER_TOKEN }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: python -m pipeline.run</code></pre>
           </article>
         </div>
       </div>

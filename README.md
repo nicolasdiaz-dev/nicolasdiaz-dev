@@ -8,16 +8,16 @@
 
 ## 📋 Resumen ejecutivo
 
-Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Me dedico a diseñar e implementar soluciones de negocio que conectan agentes de IA con [...]
+Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos operativos con el día a día de campañas comerciales y contact center en Latinoamérica.
 
 Con experiencia en **20+ repositorios** (mayoría privados en producción), trabajo en:
 
-- 🤖 **Agentes de IA**: Clasificación, derivación y soporte operativo 24/7  
-- 📊 **Dashboards ejecutivos**: KPIs en tiempo real, proyecciones, análisis por Claude  
-- ⚙️ **Pipelines de datos**: Recolección, transformación y reporting automatizado  
-- 🔗 **Integraciones complejas**: APIs de Google, Meta, Botmaker, NICE, SFTP/FTP  
+- 🤖 **Agentes de IA**: soporte operativo 24/7, clasificación y derivación
+- 📊 **Dashboards ejecutivos**: KPIs en tiempo real, proyecciones, análisis por Claude
+- ⚙️ **Pipelines de datos**: recolección, transformación y reporting automatizado
+- 🔗 **Integraciones complejas**: APIs de Google, Meta, Botmaker, NICE, SFTP/FTP
 
-Experiencia en **producción real** con Google Cloud Run, Oracle Cloud, Supabase y arquitecturas event-driven con control de costos y observabilidad.
+Experiencia en **producción real** con Vercel, Oracle Cloud, Google Cloud y Supabase, con arquitecturas event-driven, control de costos y observabilidad.
 
 ---
 
@@ -47,17 +47,17 @@ La lectura completa está en el [portfolio interactivo](https://nicolasdiaz-dev.
 
 ## 🎯 Qué hago
 
-**Automatización operativa**  
-Desarrollo agentes de IA conversacionales que corren 24/7 clasificando mensajes, detectando oportunidades y derivando a equipos correctos sin intervención humana.
+**Automatización operativa**
+Desarrollo agentes de IA que corren 24/7 sobre la operación real: preparan reportes, consultan estado de campañas y ejecutan flujos controlados con aprobación explícita.
 
-**Reporting ejecutivo inteligente**  
-Construyo dashboards multi-cliente que consolidan datos de campañas, contact center y CRM, con análisis automático generado por IA.
+**Reporting ejecutivo inteligente**
+Construyo aplicaciones de reportería multi-cliente desplegadas en Vercel que consolidan datos de campañas, contact center y CRM, con análisis automático generado por IA.
 
-**Integraciones productivas**  
+**Integraciones productivas**
 Conecto Google Ads, Meta Ads, Gmail, Drive, Sheets, Botmaker y plataformas internas con arquitecturas robustas y control de permisos.
 
-**Herramientas propias**  
-Desarrollo utilidades local-first: dictado de voz sin dependencias externas, consolas de monitoreo con D3, agents SDK integrados.
+**Herramientas propias**
+Desarrollo utilidades local-first y consolas internas: dictado de voz sin dependencias externas, monitoreo de repositorios con D3, agents SDK integrados.
 
 ---
 
@@ -75,21 +75,21 @@ Desarrollo utilidades local-first: dictado de voz sin dependencias externas, con
 
 ### IA & Agentes
 <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
-  <img src="https://img.shields.io/badge/Anthropic_Claude-1f1f1f?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTEwIDJDNS41OCAyIDIgNS41OCAyIDEwczMuNTggOCA4IDggOC0zLjU4IDgtOC0zLjU4LTgtOC04eiIvPjwvc3ZnPg==" logoColor="white" />
+  <img src="https://img.shields.io/badge/Anthropic_Claude-1f1f1f?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenClaw-00584f?style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
   <img src="https://img.shields.io/badge/Tool_Use-FF6B6B?style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/badge/Prompt_Design-4A90E2?style=for-the-badge&logoColor=white" />
-  <img src="https://img.shields.io/badge/Conversational_AI-00D084?style=for-the-badge&logoColor=white" />
 </div>
 
 ### Dashboards & Visualización
 <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
-  <img src="https://img.shields.io/badge/Power_BI-F2CC0C?style=for-the-badge&logo=powerbi&logoColor=black" />
-  <img src="https://img.shields.io/badge/Looker_Studio-4285F4?style=for-the-badge&logo=google&logoColor=white" />
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/Recharts-22B5BF?style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/badge/D3.js-F9A825?style=for-the-badge&logo=d3.js&logoColor=black" />
+  <img src="https://img.shields.io/badge/Power_BI-F2CC0C?style=for-the-badge&logo=powerbi&logoColor=black" />
 </div>
 
 ### Automatización e Integraciones
@@ -104,10 +104,10 @@ Desarrollo utilidades local-first: dictado de voz sin dependencias externas, con
 
 ### Cloud & Deploy
 <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0;">
-  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />
-  <img src="https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white" />
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
   <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" />
 </div>
 
@@ -123,32 +123,18 @@ Desarrollo utilidades local-first: dictado de voz sin dependencias externas, con
 
 ---
 
-## 🚀 Proyectos destacados
+## 🏆 Proyectos destacados
 
-*Todos estos son repositorios reales corriendo en producción. Las descripciones están sanitizadas sin datos internos, credenciales ni información sensible.*
+*Descripciones sanitizadas, sin datos internos, credenciales ni información sensible.*
 
-### 🤖 Agentes de IA
+### **Sudaka / OpenClaw** — Asistente operativo `EN PRODUCCIÓN`
 
-#### **Azul** — Sales AI Agent (DirecTV Perú)
-Agente de primera atención para el canal de ventas en WhatsApp. Filtra prospectos, detecta intenciones, califica leads y deriva conversaciones al equipo correcto.
+Agente de IA construido sobre **OpenClaw** y desplegado en Oracle Cloud ARM, corriendo 24/7. Se opera por Telegram y trabaja sobre la operación real: prepara reportes, consulta el estado de campañas, cruza información entre servicios y ejecuta flujos controlados con aprobación explícita.
 
-- Corre 24/7 en Google Cloud Run  
-- Claude con tool use como motor conversacional  
-- Deduplicación de mensajes en PostgreSQL/Supabase  
-- Registro de leads en Google Sheets  
-- Tests, CI y observabilidad integrados  
-
-**Stack:** Python · Flask · Anthropic Claude · Botmaker · PostgreSQL/Supabase · Google Sheets · Cloud Run
-
----
-
-#### **Sudaka / OpenClaw** — Asistente operativo
-Agente personal de soporte operativo desplegado en Oracle Cloud ARM. Accede a información, prepara reportes, ejecuta flujos controlados y asiste tareas recurrentes por Telegram con aprobación e[...]
-
-- Integración con Gmail, Calendar, Drive, GitHub  
-- Memoria contextual y skills por contexto  
-- Acciones sensibles con aprobación dos-factores  
-- Acceso seguro vía OCI Bastion  
+- Integración con Gmail, Calendar, Drive, GitHub y Google Sheets
+- Memoria contextual persistente y skills que se cargan según la tarea
+- Acciones sensibles con aprobación de dos factores y registro de auditoría
+- Acceso administrado vía OCI Bastion, sin puertos expuestos a internet
 
 **Stack:** OpenClaw · Python · Oracle Cloud (OCI) · Telegram · Google Workspace · GitHub
 
@@ -156,118 +142,149 @@ Agente personal de soporte operativo desplegado en Oracle Cloud ARM. Accede a in
 
 ---
 
-#### **Jarvis (Iron-Claude)** — Asistente de voz local
-Asistente de voz personal basado en Claude Agent SDK con interfaz neuronal en el navegador. Reconocimiento y síntesis de voz 100% local sin dependencias externas.
+### **Synapse Private Console** — Hub de repositorios `EN PRODUCCIÓN`
 
-- Whisper para transcripción local  
-- Integración con GitHub, Gmail, Calendar, Drive, Obsidian  
-- Lectura libre, escritura con aprobación  
+Mi punto de entrada único a todo el trabajo: desde una sola ruta llego a cualquiera de mis repositorios, a su web desplegada en producción y a su historial de commits. La vista principal es una red neuronal en canvas D3 donde cada repositorio es un nodo y las conexiones muestran stack y actividad reciente.
 
-**Stack:** Node.js · Claude Agent SDK · Web Speech API · MCP
+- Command palette para saltar a un repo, su deploy o sus últimos commits
+- GitHub App propia con permisos mínimos y cero secretos en el navegador
+- Login con cookie firmada y headers de seguridad (CSP, HSTS)
+- Toda la llamada a la API resuelta del lado del servidor
 
----
-
-#### **Director de Performance** — Agente de marketing
-Genera reportes HTML ejecutivos de campañas Meta Ads, Google Ads y atribución de ventas. Pipeline: recolectar datos → análisis de IA → HTML ejecutivo con umbrales configurables.
-
-**Stack:** Python · Claude · Meta Graph API · Google Ads API · Google Sheets
+**Stack:** React · Vite · D3 · Vercel Serverless · GitHub App
 
 ---
 
-#### **Luna / Agentes Botmaker**
-Agentes conversacionales para WhatsApp que clasifican intenciones, detectan prospectos y derivan conversaciones.
+### **DirecTV Uruguay y Argentina** — Reportería Hunter `EN PRODUCCIÓN`
 
-**Stack:** Python · Flask · Claude · Botmaker · Redis · n8n · Render · Cloud Run
+Dos aplicaciones hermanas desplegadas en Vercel para el seguimiento diario del equipo comercial: leads, ventas brutas y presentismo por asesor, abiertos por canal (Inbound, Google, Facebook, Formulario y Smart).
+
+- Vista **Resumen**: KPIs del período, comparativos, apertura por canal y ranking de asesores
+- Vista **Operación**: capacidad, conversión por canal, presentismo y tendencias diarias
+- Login propio con cookie de sesión firmada por HMAC
+- CI en GitHub Actions con tests Vitest y smoke test de parseo de la planilla
+- Asesores identificados por código numérico para tolerar nombres inconsistentes
+
+**Stack:** React 19 · Vite · Recharts · Vercel Serverless Functions · Google Sheets API · Vitest
+
+➡️ **[App Argentina](https://directv-argentina.vercel.app)** · **[Repositorio](https://github.com/nicolasdiaz-dev/DIRECTV_ARGENTINA)**
 
 ---
 
-### 📊 Dashboards & Reporting
+### **App_Ads** — Plataforma de métricas LATAM `EN PRODUCCIÓN`
 
-#### **App_Ads** — Plataforma de métricas (LATAM)
 Monitorea inversión, ventas y proyecciones de campañas por cliente y región (DirecTV, Prosegur, Claro, Movistar, Zaaz en 8 países).
 
-- Tres frontends: React + Vite (Vercel) · Flask (Render) · Streamlit  
-- Funciones serverless Python en Vercel  
-- Sincronización horaria desde Sheets a Supabase con GitHub Actions  
+- Varios frontends sobre una única fuente de datos, con React + Vite como principal
+- Funciones serverless Python en Vercel
+- Sincronización horaria desde Sheets a Supabase con GitHub Actions
+- Comparación de campañas, detección de desvíos y reportes accionables
 
-**Stack:** React · Python · Flask · Streamlit · Google Ads API · Meta Graph API · Supabase · Vercel
-
----
-
-#### **Hunter Uruguay** — Dashboard comercial
-Seguimiento en tiempo real: leads, ventas, KPIs vs. ayer, conversión diaria, ranking de asesores.
-
-**Stack:** Python · Streamlit · Plotly · Google Sheets · Streamlit Cloud
+**Stack:** React · Python · Vercel · Streamlit · Google Ads API · Meta Graph API · Supabase
 
 ---
 
-#### **Movistar México — Dashboard ADS**
+## 📊 Dashboards & Reporting
+
+#### **Churn DirecTV** `EN PRODUCCIÓN`
+Mide qué porcentaje de las ventas activadas termina cancelado, con ventana de tres meses: en julio se evalúa lo activado en abril. Abre el churn por **campaña, skill, supervisor, asesor y medio de pago**, y permite seguir su comportamiento en el tiempo.
+
+**Stack:** Vercel · Google Sheets API · análisis por cohortes
+
+---
+
+#### **Upselling DirecTV** `EN PRODUCCIÓN`
+Seguimiento de la campaña que contacta clientes prepagos para persuadirlos de migrar a plan mensual: gestiones, conversión a mensual, performance por asesor y evolución diaria.
+
+**Stack:** Vercel · Google Sheets API · KPIs de conversión
+
+---
+
+#### **Movistar México — Dashboard ADS** `EN PRODUCCIÓN`
 Campañas Google Ads y Facebook: KPIs del mes, proyecciones, funnel impresiones→ventas, detalle diario.
 
-**Stack:** Python · Streamlit · Plotly · Render
+**Stack:** Python · Streamlit · Plotly · gspread
 
 ---
 
-#### **Reportería Supervisores**
-Lee datos operativos de Sheets, genera HTML interactivo con análisis de IA y envía automáticamente por Gmail.
+#### **Reportería Supervisores** `ENVÍO AUTOMÁTICO`
+Lee datos operativos de Sheets, genera HTML interactivo con análisis de IA y lo envía automáticamente por Gmail.
 
 **Stack:** Node.js · Google Sheets API · Gmail API (OAuth2) · Claude
 
 ---
 
-#### **Reporte Desborde** — Monitoreo operativo
-Comportamiento de llamadas y ventanas operativas (DirecTV Argentina).
+#### **Reporte Desborde** `WORKFLOW DIARIO`
+Monitoreo del comportamiento de llamadas y ventanas operativas de DirecTV Argentina.
 
-**Stack:** Python · Streamlit/Flask · pandas · GitHub Actions
+**Stack:** Python · pandas · GitHub Actions
 
 ---
 
-### ⚙️ Automatización de datos
+## ⚙️ Pipelines automatizados
 
-#### **Botmaker_auto** — Pipeline de sesiones
-Extrae sesiones y métricas desde API de Botmaker con caché inteligente y publica reportes por cola en Sheets.
+#### **Botmaker_auto** `WORKFLOW MENSUAL`
+Extrae sesiones y métricas desde la API de Botmaker con caché inteligente para no reprocesar datos consolidados, y publica reportes por cola en Sheets.
 
 **Stack:** Python · Botmaker API · Google Sheets API · GitHub Actions
 
 ---
 
-#### **NICE_AUTO** — Reportería contact center
-Descarga diaria de NICE inContact, filtro por campaña, acumulados mensuales, control de duplicados.
+#### **NICE_AUTO** `WORKFLOW DIARIO`
+Descarga diaria de NICE inContact, filtro por campaña, acumulados mensuales y control de duplicados.
 
 **Stack:** PowerShell · NICE inContact · Google Sheets API · GitHub Actions
 
 ---
 
-#### **CRM_SFTP** — Sincronización operativa
+#### **CRM_SFTP** `WORKFLOW DIARIO`
 Descarga, limpieza y carga desde SFTP/FTP hacia hojas de seguimiento (gestiones, productividad, tickets).
 
 **Stack:** Python · pandas · SFTP/FTP · Google Sheets API
 
 ---
 
-### 🛠️ Herramientas propias
+#### **Sincronización Drive Ads** `WORKFLOW PROGRAMADO`
+Replica los archivos de reportes de Meta y Google Ads en Drive, manteniendo copias organizadas y disponibles para el resto de los pipelines.
+
+**Stack:** Python · Google Drive API · GitHub Actions
+
+---
+
+## 🤖 Agentes de IA
+
+#### **Director de Performance** — Agente de marketing `WORKFLOW AUTOMÁTICO`
+Genera reportes HTML ejecutivos de campañas Meta Ads, Google Ads y atribución de ventas. Pipeline: recolectar datos → análisis de IA → HTML ejecutivo con umbrales configurables.
+
+**Stack:** Python · Claude · Meta Graph API · Google Ads API · Google Sheets
+
+---
+
+#### **Azul** — Sales AI Agent (DirecTV Perú) `FUNCIONAL · NO PRODUCTIVO`
+Agente de primera atención para el canal de ventas en WhatsApp: detecta si escribe un prospecto o un cliente, califica el lead y deriva al equipo correcto. Construido y probado de punta a punta —con tests, CI y deduplicación de mensajes— pero no llegó a pasar a operación productiva.
+
+**Stack:** Python · Flask · Claude · Botmaker · PostgreSQL/Supabase · Google Sheets
+
+---
+
+#### **Luna / Agentes Botmaker** `FUNCIONAL · NO PRODUCTIVO`
+Agentes conversacionales para WhatsApp que clasifican intenciones, detectan prospectos y derivan conversaciones. Probados end-to-end sobre Botmaker, sin despliegue productivo.
+
+**Stack:** Python · Flask · Claude · Botmaker · Redis · n8n
+
+---
+
+## 🛠️ Herramientas propias
 
 #### **Vide Coding Local** — Dictado por voz local
 Dictado 100% local para escribir, programar y responder mensajes. `Ctrl+Space`, hablás, y el texto se pega donde tengas el cursor.
 
-- Transcripción local con `faster-whisper`  
-- Modos de escritura: código, emails, mensajes  
-- Overlay flotante con estado y nivel de voz  
-- Historial privado local  
+- Transcripción local con `faster-whisper`
+- Modos de escritura: código, emails, mensajes
+- Overlay flotante con estado y nivel de voz
+- Historial privado local
 
 **Stack:** Python · faster-whisper · Windows
-
----
-
-#### **Synapse Private Console** — Consola de repositorios
-Consola privada en producción para monitorear repositorios de GitHub con vista de red neuronal (D3), lista, palette y filtros.
-
-- GitHub App real con permisos mínimos  
-- Login propio con cookie firmada  
-- Headers de seguridad (CSP, HSTS)  
-- Cero secretos en el navegador  
-
-**Stack:** React · Vite · D3 · Vercel Serverless · GitHub App
 
 ---
 
@@ -352,23 +369,23 @@ def run_sensitive_action(action_name: str, payload: dict, approved: bool) -> str
 
 ## 🎓 Áreas de especialización
 
-- **IA aplicada a operaciones reales** — Agentes en producción con tool use, memoria, validaciones  
-- **Automatización comercial** — Pipelines end-to-end, integraciones multi-API  
-- **Contact center & soporte** — Clasificación, derivación, reportería  
-- **Reporting ejecutivo** — Dashboards multi-cliente con análisis automático  
-- **Local-first & privacy** — Herramientas sin dependencias externas  
-- **Cloud architecture** — GCP, OCI, diseño cost-effective, observabilidad  
+- **IA aplicada a operaciones reales** — Agentes en producción con tool use, memoria y validaciones
+- **Automatización comercial** — Pipelines end-to-end, integraciones multi-API
+- **Contact center & soporte** — Clasificación, derivación, reportería y análisis de churn
+- **Reporting ejecutivo** — Aplicaciones multi-cliente con análisis automático
+- **Local-first & privacy** — Herramientas sin dependencias externas
+- **Cloud architecture** — Vercel, OCI, GCP, diseño cost-effective y observabilidad
 
 ---
 
 ## 📬 Conecta conmigo
 
-📧 **Email:** [nicolas.diaz@gout.com.ar](mailto:nicolas.diaz@gout.com.ar)  
-🔗 **GitHub:** [@nicolasdiaz-dev](https://github.com/nicolasdiaz-dev)  
-💼 **LinkedIn:** [nicolas-diaz-641a17346](https://www.linkedin.com/in/nicolas-diaz-641a17346)  
-🌐 **Portfolio:** [nicolasdiaz-dev.github.io](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)  
+📧 **Email:** [nicolas.diaz@gout.com.ar](mailto:nicolas.diaz@gout.com.ar)
+🔗 **GitHub:** [@nicolasdiaz-dev](https://github.com/nicolasdiaz-dev)
+💼 **LinkedIn:** [nicolas-diaz-641a17346](https://www.linkedin.com/in/nicolas-diaz-641a17346)
+🌐 **Portfolio:** [nicolasdiaz-dev.github.io](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)
 
 ---
 
-**Última actualización:** julio 2026  
-*Este perfil resume 20+ proyectos en producción privados. Los ejemplos son sanitizados sin datos internos ni credenciales.*
+**Última actualización:** agosto 2026
+*Este perfil resume 20+ proyectos, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*

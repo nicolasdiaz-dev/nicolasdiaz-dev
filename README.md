@@ -10,7 +10,7 @@
 
 Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos operativos con el día a día de campañas comerciales y contact center en Latinoamérica.
 
-Con experiencia en **20+ repositorios** (mayoría privados en producción), trabajo en:
+Con experiencia en **23 repositorios** (mayoría privados en producción), trabajo en:
 
 - 🤖 **Agentes de IA**: soporte operativo 24/7, clasificación y derivación
 - 📊 **Dashboards ejecutivos**: KPIs en tiempo real, proyecciones, análisis por Claude
@@ -458,4 +458,4 @@ jobs:
 ---
 
 **Última actualización:** agosto 2026
-*Este perfil resume 20+ proyectos, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*
+*Este perfil resume 23 proyectos, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*

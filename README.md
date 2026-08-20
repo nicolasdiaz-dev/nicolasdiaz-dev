@@ -2,15 +2,15 @@
 
 **Especializado en agentes de IA, automatización operativa y reporting inteligente**
 
-🔗 **[Portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)** | 🔗 **[Sudaka — Asistente operativo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)** | 💼 **[LinkedIn](https://www.linkedin.com/in/nicolas-diaz-641a17346)**
+🔗 **[Portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/)** | 🔗 **[Sudaka — Asistente operativo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)** | 💼 **[...] 
 
 ---
 
 ## 📋 Resumen ejecutivo
 
-Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos operativos con el día a día de campañas comerciales y contact center en Latinoamérica.
+Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos oper[...]
 
-Con experiencia en **23 repositorios** (mayoría privados en producción), trabajo en:
+Con experiencia en **1 repositorio** (mayoría privados en producción), trabajo en:
 
 - 🤖 **Agentes de IA**: soporte operativo 24/7, clasificación y derivación
 - 📊 **Dashboards ejecutivos**: KPIs en tiempo real, proyecciones, análisis por Claude
@@ -41,7 +41,7 @@ Es el perfil donde resumo el trabajo de desarrollo más fuerte, incluyendo repos
 - Casos reales presentados sin credenciales, datos internos ni información sensible.
 - Foco para recruiters: impacto, stack, criterio técnico, despliegue y seguridad.
 
-La lectura completa está en el [portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/), que conecta ambos perfiles y separa claramente qué es público, qué es privado y qué se muestra sólo como caso profesional.
+La lectura completa está en el [portfolio interactivo](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/), que conecta ambos perfiles y separa claramente qué es público, qué es privado y qué[...]
 
 ---
 
@@ -123,13 +123,13 @@ Desarrollo utilidades local-first y consolas internas: dictado de voz sin depend
 
 ---
 
-## 🏆 Proyectos destacados
+## 🎯 Proyectos destacados
 
 *Descripciones sanitizadas, sin datos internos, credenciales ni información sensible.*
 
 ### **Sudaka / OpenClaw** — Asistente operativo `EN PRODUCCIÓN`
 
-Agente de IA construido sobre **OpenClaw** y desplegado en Oracle Cloud ARM, corriendo 24/7. Se opera por Telegram y trabaja sobre la operación real: prepara reportes, consulta el estado de campañas, cruza información entre servicios y ejecuta flujos controlados con aprobación explícita.
+Agente de IA construido sobre **OpenClaw** y desplegado en Oracle Cloud ARM, corriendo 24/7. Se opera por Telegram y trabaja sobre la operación real: prepara reportes, consulta el estado de camp[...]
 
 - Integración con Gmail, Calendar, Drive, GitHub y Google Sheets
 - Memoria contextual persistente y skills que se cargan según la tarea
@@ -138,13 +138,13 @@ Agente de IA construido sobre **OpenClaw** y desplegado en Oracle Cloud ARM, cor
 
 **Stack:** OpenClaw · Python · Oracle Cloud (OCI) · Telegram · Google Workspace · GitHub
 
-➡️ **[Presentación pública](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)**
+➡️ **[Presentación pública](https://nicolasdiaz-dev.github.io/nicolasdiaz-dev/sudaka/)"
 
 ---
 
 ### **Synapse Private Console** — Hub de repositorios `EN PRODUCCIÓN`
 
-Mi punto de entrada único a todo el trabajo: desde una sola ruta llego a cualquiera de mis repositorios, a su web desplegada en producción y a su historial de commits. La vista principal es una red neuronal en canvas D3 donde cada repositorio es un nodo y las conexiones muestran stack y actividad reciente.
+Mi punto de entrada único a todo el trabajo: desde una sola ruta llego a cualquiera de mis repositorios, a su web desplegada en producción y a su historial de commits. La vista principal es una[...]
 
 - Command palette para saltar a un repo, su deploy o sus últimos commits
 - GitHub App propia con permisos mínimos y cero secretos en el navegador
@@ -157,7 +157,7 @@ Mi punto de entrada único a todo el trabajo: desde una sola ruta llego a cualqu
 
 ### **DirecTV Uruguay y Argentina** — Reportería Hunter `EN PRODUCCIÓN`
 
-Dos aplicaciones hermanas desplegadas en Vercel para el seguimiento diario del equipo comercial: leads, ventas brutas y presentismo por asesor, abiertos por canal (Inbound, Google, Facebook, Formulario y Smart).
+Dos aplicaciones hermanas desplegadas en Vercel para el seguimiento diario del equipo comercial: leads, ventas brutas y presentismo por asesor, abiertos por canal (Inbound, Google, Facebook, Form[...]
 
 - Vista **Resumen**: KPIs del período, comparativos, apertura por canal y ranking de asesores
 - Vista **Operación**: capacidad, conversión por canal, presentismo y tendencias diarias
@@ -187,11 +187,11 @@ Monitorea inversión, ventas y proyecciones de campañas por cliente y región (
 ## 📊 Dashboards & Reporting
 
 #### **Churn DirecTV** `EN PRODUCCIÓN`
-Tablero de churn para la operación de call center. Un **cierre** mide una cohorte de ventas cuando llega a su tercer mes de vida: el cierre de julio no mide lo vendido en julio, mide **cuántas de las ventas de abril siguen activas tres meses después**.
+Tablero de churn para la operación de call center. Un **cierre** mide una cohorte de ventas cuando llega a su tercer mes de vida: el cierre de julio no mide lo vendido en julio, mide **cuántas [...]
 
 - Dos vistas: el cierre en curso con todo el detalle, y el acumulado del año
 - Cortes por campaña (Hunter, Web, Upselling), skill, supervisor y ranking por asesor
-- **Cortes transversales que no existen en la planilla** —forma de pago, turno, canal, promoción— calculados agrupando la hoja cruda. Ahí salió el hallazgo del mes: **23,8% de churn pagando con wallet contra 6,3% con tarjeta**
+- **Cortes transversales que no existen en la planilla** —forma de pago, turno, canal, promoción— calculados agrupando la hoja cruda. Ahí salió el hallazgo del mes: **23,8% de churn pagand[...]
 - El selector de cortes se arma con las columnas que trae la hoja, no con una lista fija
 - Curva de vida (en qué mes de vida se dan de baja) y motivo tipificado de las bajas
 - La agregación corre en el servidor: **23.000+ filas** en la planilla se resuelven en un JSON de ~75 KB con caché de 5 minutos
@@ -204,7 +204,7 @@ Tablero de churn para la operación de call center. Un **cierre** mide una cohor
 ---
 
 #### **Upselling** `EN PRODUCCIÓN`
-Seguimiento de la campaña que contacta clientes prepagos para migrarlos a plan mensual. Tres vistas —Diario, Mensual y Acumulado— con conversión, presentismo, rankings y comparación contra el mes anterior a la misma altura del mes.
+Seguimiento de la campaña que contacta clientes prepagos para migrarlos a plan mensual. Tres vistas —Diario, Mensual y Acumulado— con conversión, presentismo, rankings y comparación contra[...]
 
 - **Una sola definición de cada tasa**, en un módulo compartido que importan backend y frontend, para que no existan dos fórmulas de la misma métrica
 - Las tasas de los agregados se **recalculan sobre las métricas base**, porque promediar tasas ya calculadas da otro número
@@ -244,9 +244,9 @@ Campañas Google Ads y Facebook: KPIs del mes, proyecciones, funnel impresiones�
 
 Cuatro pipelines que eliminaron la descarga manual de reportes.
 
-Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía **cada dos horas dentro del horario de trabajo, de 9 a 21**. Hoy corren solos con GitHub Actions **cada dos horas y las 24 horas**: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga, también de madrugada y los fines de semana.
+Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía **cada dos horas dentro del horario de trabajo, de 9 a 21**. Hoy corren solos con GitHub Act[...]
 
-Lo que se ganó no es sólo tiempo. Se fue la ventana de **error manual** —el reporte bajado con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo— y el tiempo perdido saltando entre cuatro plataformas distintas para juntar la misma foto del día.
+Lo que se ganó no es sólo tiempo. Se fue la ventana de **error manual** —el reporte bajado con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo— y el tiempo perdido[...]
 
 | Pipeline | Cadencia | Fuente |
 |---|---|---|
@@ -261,7 +261,7 @@ Lo que se ganó no es sólo tiempo. Se fue la ventana de **error manual** —el 
 
 ## 🌎 Presencia regional
 
-Los dashboards y pipelines que construyo procesan campañas que operan en **seis países de Latinoamérica** —Argentina, Colombia, Chile, Perú, México y Uruguay— con sites propios en Argentina, Perú y Colombia.
+Los dashboards y pipelines que construyo procesan campañas que operan en **seis países de Latinoamérica** —Argentina, Colombia, Chile, Perú, México y Uruguay— con sites propios en Argent[...]
 
 **Campañas que reporto:** DirecTV · Movistar · Claro · Prosegur · Payway · Prisma · Zaaz Perú
 
@@ -279,7 +279,7 @@ Genera reportes HTML ejecutivos de campañas Meta Ads, Google Ads y atribución 
 ---
 
 #### **Azul** — Sales AI Agent (DirecTV Perú) `FUNCIONAL · NO PRODUCTIVO`
-Agente de primera atención para el canal de ventas en WhatsApp: detecta si escribe un prospecto o un cliente, califica el lead y deriva al equipo correcto. Construido y probado de punta a punta —con tests, CI y deduplicación de mensajes— pero no llegó a pasar a operación productiva.
+Agente de primera atención para el canal de ventas en WhatsApp: detecta si escribe un prospecto o un cliente, califica el lead y deriva al equipo correcto. Construido y probado de punta a punta [...]
 
 **Stack:** Python · Flask · Claude · Botmaker · PostgreSQL/Supabase · Google Sheets
 
@@ -425,4 +425,4 @@ def inversion_por_campania(desde: str, limite: int = 50) -> list[dict]:
 ---
 
 **Última actualización:** agosto 2026
-*Este perfil resume 23 proyectos, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*
+*Este perfil resume 1 proyecto, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*

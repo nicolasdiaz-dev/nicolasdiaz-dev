@@ -155,7 +155,7 @@
       margin: 0;
       font-size: clamp(42px, 6vw, 82px);
       line-height: .98;
-      letter-spacing: -1px;
+      letter-spacing: 0;
       overflow-wrap: anywhere;
     }
 
@@ -325,8 +325,13 @@
     .openclaw { background: #00584f; color: var(--lime) !important; }
     .claude { background: #191919; }
     .meta { background: #0866ff; }
+    .flask { background: #111; }
     .vercel { background: #000; }
-    .oracle { background: #f80000; }
+    .oracle { background: #c74634; }
+    .node { background: #3c873a; }
+    .vite { background: #646cff; }
+    .d3 { background: #f68e2e; }
+    .plotly { background: #3f4f75; }
 
     .capability-grid {
       display: grid;
@@ -1263,7 +1268,7 @@
     <header class="hero shell">
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">AI Solutions Developer · GOUT</div>
+          <div class="eyebrow">AI Solutions Developer</div>
           <h1>Automatización, datos e <em>IA</em> para operaciones reales.</h1>
           <p class="lead">
             Construyo agentes de IA que corren 24/7, aplicaciones de reportería desplegadas en Vercel y pipelines automatizados que sostienen la operación diaria de campañas comerciales y contact center en Latinoamérica.
@@ -1279,7 +1284,7 @@
           <div class="signature">
             <div>
               <h2>Nicolás Díaz</h2>
-              <div class="role">AI Solutions Developer · GOUT | Global Outsourcing</div>
+              <div class="role">AI Solutions Developer · IA operativa y automatización</div>
             </div>
             <div>
               <div class="signature-line"></div>
@@ -1315,19 +1320,25 @@
         </div>
         <div class="tool-grid reveal">
           <div class="tool"><span class="logo python"><img src="https://cdn.simpleicons.org/python/ffffff" alt="Python"></span>Python</div>
-          <div class="tool"><span class="logo claude"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude y OpenAI"></span>Claude / OpenAI</div>
+          <div class="tool"><span class="logo claude"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude"></span>Claude</div>
+          <div class="tool"><span class="logo openclaw"><img src="assets/openclaw.svg" alt="OpenClaw"></span>OpenClaw</div>
+          <div class="tool"><span class="logo github"><img src="https://cdn.simpleicons.org/openai/ffffff" alt="OpenAI"></span>OpenAI</div>
+          <div class="tool"><span class="logo react"><img src="https://cdn.simpleicons.org/react/61dafb" alt="React"></span>React</div>
+          <div class="tool"><span class="logo vite"><img src="https://cdn.simpleicons.org/vite/ffffff" alt="Vite"></span>Vite</div>
+          <div class="tool"><span class="logo node"><img src="https://cdn.simpleicons.org/nodedotjs/ffffff" alt="Node.js"></span>Node.js</div>
+          <div class="tool"><span class="logo flask invert"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/flask.svg" alt="Flask"></span>Flask</div>
+          <div class="tool"><span class="logo streamlit"><img src="https://cdn.simpleicons.org/streamlit/ffffff" alt="Streamlit"></span>Streamlit</div>
+          <div class="tool"><span class="logo d3"><img src="https://cdn.simpleicons.org/d3dotjs/ffffff" alt="D3.js"></span>D3</div>
+          <div class="tool"><span class="logo plotly"><img src="https://cdn.simpleicons.org/plotly/ffffff" alt="Plotly"></span>Plotly</div>
+          <div class="tool"><span class="logo supabase"><img src="https://cdn.simpleicons.org/supabase/10231f" alt="Supabase"></span>Supabase</div>
+          <div class="tool"><span class="logo cloud"><img src="https://cdn.simpleicons.org/googlecloud/ffffff" alt="Google Cloud"></span>Google Cloud</div>
+          <div class="tool"><span class="logo oracle invert"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/oracle.svg" alt="Oracle Cloud"></span>Oracle Cloud</div>
+          <div class="tool"><span class="logo vercel"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"></span>Vercel</div>
+          <div class="tool"><span class="logo github"><img src="https://cdn.simpleicons.org/githubactions/ffffff" alt="GitHub Actions"></span>GitHub Actions</div>
           <div class="tool"><span class="logo ads"><img src="https://cdn.simpleicons.org/googleads/ffffff" alt="Google Ads"></span>Google Ads</div>
           <div class="tool"><span class="logo meta"><img src="https://cdn.simpleicons.org/meta/ffffff" alt="Meta Ads"></span>Meta Ads</div>
           <div class="tool"><span class="logo sheets"><img src="https://cdn.simpleicons.org/googlesheets/ffffff" alt="Google Sheets"></span>Google Sheets</div>
-          <div class="tool"><span class="logo supabase"><img src="https://cdn.simpleicons.org/supabase/10231f" alt="Supabase"></span>Supabase</div>
-          <div class="tool"><span class="logo react"><img src="https://cdn.simpleicons.org/react/61dafb" alt="React"></span>React / Vite</div>
-          <div class="tool"><span class="logo vercel"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"></span>Vercel</div>
-          <div class="tool"><span class="logo streamlit"><img src="https://cdn.simpleicons.org/streamlit/ffffff" alt="Streamlit"></span>Streamlit</div>
-          <div class="tool"><span class="logo cloud"><img src="https://cdn.simpleicons.org/googlecloud/ffffff" alt="Google Cloud"></span>Google Cloud</div>
-          <div class="tool"><span class="logo oracle">OCI</span>Oracle Cloud</div>
           <div class="tool"><span class="logo botmaker">BM</span>Botmaker</div>
-          <div class="tool"><span class="logo github"><img src="https://cdn.simpleicons.org/githubactions/ffffff" alt="GitHub Actions"></span>GitHub Actions</div>
-          <div class="tool"><span class="logo openclaw">OC</span>OpenClaw</div>
         </div>
         <div class="capability-grid reveal">
           <article class="capability">
@@ -1900,7 +1911,7 @@ supabase = create_client(
         </div>
         <div class="timeline reveal">
           <article class="experience">
-            <h3>GOUT | Global Outsourcing</h3>
+            <h3>Operaciones comerciales y contact center</h3>
             <div class="date">AI Solutions Developer · 2025 - presente</div>
             <p>Desarrollo de agentes de IA, dashboards, pipelines de datos, integraciones con APIs y herramientas internas para campañas comerciales y contact center en Latinoamérica.</p>
           </article>

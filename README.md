@@ -8,7 +8,7 @@
 
 ## 📋 Resumen ejecutivo
 
-Desarrollador especializado en **IA operativa y automatización de procesos** en GOUT | Global Outsourcing. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos operativos con el día a día de campañas comerciales y contact center en Latinoamérica.
+Desarrollador especializado en **IA operativa y automatización de procesos**. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos operativos con el día a día de campañas comerciales y contact center en Latinoamérica.
 
 Con experiencia en **23 repositorios** (mayoría privados en producción), trabajo en:
 

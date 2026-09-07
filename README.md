@@ -10,7 +10,7 @@
 
 Desarrollador especializado en **IA operativa y automatización de procesos**. Diseño e implemento soluciones de negocio que conectan agentes de IA, APIs y datos operativos con el día a día de campañas comerciales y contact center en Latinoamérica.
 
-Con experiencia en **32 repositorios entre mis dos perfiles** (mayoría privados en producción), trabajo en:
+Con experiencia en **30 repositorios entre mis dos perfiles** (mayoría privados en producción), trabajo en:
 
 - 🤖 **Agentes de IA**: soporte operativo 24/7, clasificación y derivación
 - 📊 **Dashboards ejecutivos**: KPIs en tiempo real, proyecciones, análisis por Claude
@@ -425,4 +425,4 @@ def inversion_por_campania(desde: str, limite: int = 50) -> list[dict]:
 ---
 
 **Última actualización:** agosto 2026
-*Este perfil resume 32 proyectos entre mis dos perfiles, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*
+*Este perfil resume 30 proyectos entre mis dos perfiles, en su mayoría privados y en producción. Los ejemplos de código son sanitizados, sin datos internos ni credenciales.*

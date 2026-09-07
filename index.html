@@ -1505,17 +1505,17 @@
             <h3>Cinco pipelines que eliminaron la descarga manual de reportes</h3>
             <p>
               <span class="before">Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía cada dos horas dentro del horario de trabajo, de 9 a 21.</span>
-              Hoy corren solos con GitHub Actions, cada dos horas y las 24 horas: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga, también de madrugada y los fines de semana. Se fue el tiempo perdido saltando entre plataformas y, sobre todo, el error manual —el reporte que se bajó con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo.
+              Hoy corren solos las 24 horas, cada uno con su propia cadencia: el del CRM cada media hora, el de Botmaker cada hora y el de contact center cada dos. El mismo dato llega consolidado a la planilla sin que nadie toque una descarga, también de madrugada y los fines de semana. Se fue el tiempo perdido saltando entre plataformas y, sobre todo, el error manual —el reporte que se bajó con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo.
             </p>
           </div>
 
           <div class="engine-stats">
             <div>
-              <strong>cada 2 hs</strong>
-              <span>las 24 horas, sin intervención humana</span>
+              <strong>cada 30 min</strong>
+              <span>la corrida más frecuente, sin intervención humana</span>
             </div>
             <div>
-              <strong>5 plataformas</strong>
+              <strong>4 plataformas</strong>
               <span>Botmaker, NICE, Neotel y Drive en un solo flujo</span>
             </div>
             <div>
@@ -1526,7 +1526,7 @@
 
           <div class="engine-grid">
             <article class="pipeline">
-              <span class="cadence">Cada 2 hs · 24/7</span>
+              <span class="cadence">Cada 1 h · 24/7</span>
               <h4>Botmaker_auto</h4>
               <p>Extrae sesiones y métricas de la API con caché que evita reprocesar lo ya consolidado, y publica por cola en Sheets.</p>
               <span class="src">Botmaker API</span>
@@ -1540,9 +1540,9 @@
             </article>
 
             <article class="pipeline">
-              <span class="cadence">Cada 2 hs · 24/7</span>
+              <span class="cadence">Cada 30 min · 24/7</span>
               <h4>CRM_BOT</h4>
-              <p>Automatización del CRM con Playwright: entra al sistema, navega el flujo y baja los reportes operativos sin depender de que la plataforma exponga una API.</p>
+              <p>Automatización del CRM con Playwright: entra al sistema, navega el flujo y baja los reportes operativos sin depender de que la plataforma exponga una API. Reemplazó tres horas diarias de descargas manuales.</p>
               <span class="src">Neotel · Playwright</span>
             </article>
 

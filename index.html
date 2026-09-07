@@ -1297,8 +1297,8 @@
           </div>
           <div class="metrics">
             <div class="metric">
-              <strong>23</strong>
-              <span>proyectos en GitHub: agentes, dashboards y pipelines</span>
+              <strong>32</strong>
+              <span>proyectos en GitHub entre mis dos perfiles: agentes, dashboards y pipelines</span>
             </div>
             <div class="metric">
               <strong>12+</strong>
@@ -1502,7 +1502,7 @@
         <div class="engine reveal">
           <div class="engine-head">
             <span class="chip">Motor de la operación</span>
-            <h3>Cuatro pipelines que eliminaron la descarga manual de reportes</h3>
+            <h3>Cinco pipelines que eliminaron la descarga manual de reportes</h3>
             <p>
               <span class="before">Antes cada reporte se bajaba a mano desde su plataforma, campaña por campaña, y el ciclo se repetía cada dos horas dentro del horario de trabajo, de 9 a 21.</span>
               Hoy corren solos con GitHub Actions, cada dos horas y las 24 horas: el mismo dato llega consolidado a la planilla sin que nadie toque una descarga, también de madrugada y los fines de semana. Se fue el tiempo perdido saltando entre plataformas y, sobre todo, el error manual —el reporte que se bajó con el filtro equivocado, el que quedó sin subir, el que se pisó al pegarlo.
@@ -1515,7 +1515,7 @@
               <span>las 24 horas, sin intervención humana</span>
             </div>
             <div>
-              <strong>4 plataformas</strong>
+              <strong>5 plataformas</strong>
               <span>Botmaker, NICE, Neotel y Drive en un solo flujo</span>
             </div>
             <div>
@@ -1541,8 +1541,15 @@
 
             <article class="pipeline">
               <span class="cadence">Cada 2 hs · 24/7</span>
+              <h4>CRM_BOT</h4>
+              <p>Automatización del CRM con Playwright: entra al sistema, navega el flujo y baja los reportes operativos sin depender de que la plataforma exponga una API.</p>
+              <span class="src">Neotel · Playwright</span>
+            </article>
+
+            <article class="pipeline">
+              <span class="cadence">Respaldo · 24/7</span>
               <h4>CRM_SFTP</h4>
-              <p>Descarga, limpia y carga los reportes operativos desde SFTP/FTP: gestiones, productividad y tickets entrantes y salientes.</p>
+              <p>La vía anterior, hoy corriendo como respaldo: descarga, limpia y carga los mismos reportes desde SFTP/FTP y sostiene el flujo si la automatización del CRM falla.</p>
               <span class="src">Neotel · SFTP/FTP</span>
             </article>
 
@@ -1557,24 +1564,25 @@
 
         <div class="filters reveal" role="group" aria-label="Filtrar proyectos">
           <button class="active" data-filter="all">Todos</button>
+          <button data-filter="reporteria">Reportería</button>
           <button data-filter="agentes">Agentes IA</button>
-          <button data-filter="dashboards">Dashboards &amp; Reporting</button>
+          <button data-filter="clientes">Clientes</button>
+          <button data-filter="demos">Demos públicas</button>
           <button data-filter="herramientas">Herramientas propias</button>
         </div>
 
         <div class="project-grid">
-          <article class="project reveal" data-cat="dashboards">
+          <article class="project reveal" data-cat="reporteria">
             <div>
               <div class="badges"><span class="cat">Analítica</span><span class="status live">En producción</span></div>
               <h3>Churn DirecTV</h3>
-              <p>Un cierre mide una cohorte de ventas al llegar a su tercer mes: el cierre de julio evalúa lo vendido en abril. Abre el churn por campaña, skill, supervisor y asesor, más cortes transversales que no existían en la planilla —forma de pago, turno, canal y promoción— y ahí apareció el hallazgo del mes: <b>23,8% de churn pagando con wallet contra 6,3% con tarjeta</b>.</p>
+              <p>Un cierre mide una cohorte de ventas al llegar a su tercer mes: el cierre de julio evalúa lo vendido en abril. Abre el churn por campaña, skill, supervisor y asesor, más cortes transversales que no existían en la planilla &mdash;forma de pago, turno, canal y promoción&mdash; y ahí apareció el hallazgo del mes: <b>23,8% de churn pagando con wallet contra 6,3% con tarjeta</b>.</p>
             </div>
             <div class="tags">
               <span class="tag">React 19</span><span class="tag">Recharts</span><span class="tag">Python en Vercel</span><span class="tag">gspread</span><span class="tag">Cohortes</span>
             </div>
           </article>
-
-          <article class="project reveal" data-cat="dashboards">
+          <article class="project reveal" data-cat="reporteria">
             <div>
               <div class="badges"><span class="cat">Dashboard</span><span class="status live">En producción</span></div>
               <h3>Upselling DirecTV</h3>
@@ -1584,7 +1592,76 @@
               <span class="tag">React 19</span><span class="tag">Recharts</span><span class="tag">Vercel</span><span class="tag">Vitest</span><span class="tag">Modo oscuro</span>
             </div>
           </article>
-
+          <article class="project reveal" data-cat="reporteria">
+            <div>
+              <div class="badges"><span class="cat">Dashboard</span><span class="status live">En producción</span></div>
+              <h3>Farmer DirecTV Argentina</h3>
+              <p>Web de medición de la campaña Farmer: sigue el rendimiento de la base trabajada por el equipo comercial, con corte por asesor y por período, sobre la misma planilla que alimenta al resto de la reportería.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Vercel</span><span class="tag">Sheets API</span><span class="tag">KPIs</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="reporteria">
+            <div>
+              <div class="badges"><span class="cat">Reporting</span><span class="status">Pedido puntual</span></div>
+              <h3>Movistar México</h3>
+              <p>Dashboard de campañas Google Ads y Facebook Ads con KPIs acumulados, proyecciones al cierre de mes, funnel de impresiones a ventas y detalle diario por cuenta. Se levanta a pedido para revisiones puntuales, no corre en tiempo real.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">gspread</span><span class="tag">Ads</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="reporteria">
+            <div>
+              <div class="badges"><span class="cat">Reporting</span><span class="status">Pedido puntual</span></div>
+              <h3>Claro Chile</h3>
+              <p>Métricas de campaña para la operación de Claro Chile: consolida el rendimiento por período en una sola vista para revisiones de gestión. Se arma a demanda cuando se pide el corte, sin ciclo automático.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Sheets API</span><span class="tag">KPIs</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="reporteria">
+            <div>
+              <div class="badges"><span class="cat">Reporting</span><span class="status">Pedido puntual</span></div>
+              <h3>Reportería Supervisores</h3>
+              <p>Sistema que lee datos operativos de Google Sheets, genera un reporte HTML interactivo con análisis de IA y lo envía automáticamente por Gmail a los destinatarios configurados.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Node.js</span><span class="tag">Gmail API</span><span class="tag">Claude</span><span class="tag">OAuth2</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="reporteria">
+            <div>
+              <div class="badges"><span class="cat">Reporting</span><span class="status">Pedido puntual</span></div>
+              <h3>Reporte Desborde</h3>
+              <p>Herramienta de monitoreo del comportamiento de llamadas y ventanas operativas de DirecTV Argentina, con visualización y automatización recurrente.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Actions</span><span class="tag">KPIs</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="agentes">
+            <div>
+              <div class="badges"><span class="cat">Agente IA</span><span class="status">Funcional &middot; no productivo</span></div>
+              <h3>Luna &mdash; Filtrado de leads DirecTV Uruguay</h3>
+              <p>Agente de WhatsApp que recibe contactos de campañas Botmaker, los clasifica con Claude y deriva al asesor humano o descarta según corresponda. Webhook Flask con autenticación, deduplicación en Postgres y debounce, system prompt cacheado y salida por tool use a las colas de atención en Sheets. Terminado y probado de punta a punta, dimensionado para ~8-10k sesiones por mes, pero hoy no está en uso.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Claude Haiku 4.5</span><span class="tag">Flask</span><span class="tag">Postgres</span><span class="tag">Botmaker</span><span class="tag">Sheets API</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="agentes">
+            <div>
+              <div class="badges"><span class="cat">Agente IA</span><span class="status live">En producción</span></div>
+              <h3>Agente Prosegur</h3>
+              <p>Agente de filtrado de leads para Prosegur montado sobre Botmaker 3.0: toma el contacto entrante, lo califica y lo enruta al equipo que corresponde, con las reglas de negocio separadas del prompt para poder ajustarlas sin tocar el código.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Claude</span><span class="tag">Botmaker 3.0</span><span class="tag">Python</span><span class="tag">Webhooks</span>
+            </div>
+          </article>
           <article class="project reveal" data-cat="agentes">
             <div>
               <div class="badges"><span class="cat">Agente IA</span><span class="status">Workflow automático</span></div>
@@ -1595,51 +1672,126 @@
               <span class="tag">Python</span><span class="tag">Claude</span><span class="tag">Meta API</span><span class="tag">Google Ads API</span>
             </div>
           </article>
-
-          <article class="project reveal" data-cat="dashboards">
+          <article class="project reveal" data-cat="agentes">
             <div>
-              <div class="badges"><span class="cat">Reporting</span><span class="status">Envío automático</span></div>
-              <h3>Reportería Supervisores</h3>
-              <p>Sistema que lee datos operativos de Google Sheets, genera un reporte HTML interactivo con análisis de IA y lo envía automáticamente por Gmail a los destinatarios configurados.</p>
+              <div class="badges"><span class="cat">Agente IA</span><span class="status">Memoria del agente</span></div>
+              <h3>RAG Sudaka</h3>
+              <p>Capa de memoria RAG que alimenta a Sudaka, el agente sobre OpenClaw: indexa documentación y contexto operativo para que las respuestas salgan con el historial real de la operación y no solo con lo que entra en la ventana de contexto.</p>
             </div>
             <div class="tags">
-              <span class="tag">Node.js</span><span class="tag">Gmail API</span><span class="tag">Claude</span><span class="tag">OAuth2</span>
+              <span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">OpenClaw</span>
             </div>
           </article>
-
-          <article class="project reveal" data-cat="dashboards">
+          <article class="project reveal" data-cat="agentes">
             <div>
-              <div class="badges"><span class="cat">Reporting</span><span class="status">Workflow diario</span></div>
-              <h3>Reporte Desborde</h3>
-              <p>Herramienta de monitoreo del comportamiento de llamadas y ventanas operativas de DirecTV Argentina, con visualización y automatización recurrente.</p>
+              <div class="badges"><span class="cat">Agente IA</span><span class="status">Funcional &middot; no productivo</span></div>
+              <h3>Azul &mdash; Agente de ventas WhatsApp</h3>
+              <p>Agente de primera atención para el canal de ventas de DirecTV Perú: detecta si escribe un prospecto o un cliente, lo califica y lo deriva al equipo correcto. Construido y probado de punta a punta, pero no llegó a pasar a operación productiva.</p>
             </div>
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Actions</span><span class="tag">KPIs</span>
+              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Claude</span><span class="tag">Botmaker</span>
             </div>
           </article>
-
-          <article class="project reveal" data-cat="dashboards">
+          <article class="project reveal" data-cat="clientes">
             <div>
-              <div class="badges"><span class="cat">Dashboard</span><span class="status live">En producción</span></div>
-              <h3>Movistar México</h3>
-              <p>Dashboard de campañas Google Ads y Facebook Ads con KPIs acumulados, proyecciones al cierre de mes, funnel de impresiones a ventas y detalle diario por cuenta.</p>
+              <div class="badges"><span class="cat">Cliente</span><span class="status live">En producción</span></div>
+              <h3>SaaS de préstamos personales</h3>
+              <p>Plataforma para la gestión de préstamos personales: alta de solicitudes, seguimiento del estado de cada legajo y control de la cartera desde una sola vista, pensada para que el cliente opere sin planillas paralelas.</p>
             </div>
             <div class="tags">
-              <span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">gspread</span><span class="tag">Ads</span>
+              <span class="tag">React</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">SaaS</span>
             </div>
           </article>
-
-          <article class="project reveal" data-cat="herramientas">
+          <article class="project reveal" data-cat="clientes">
             <div>
-              <div class="badges"><span class="cat">Herramienta</span><span class="status">Local-first</span></div>
-              <h3>Vide Coding Local</h3>
-              <p>Dictado por voz 100% local con Whisper: atajo global, modos para código, emails y mensajes, overlay de estado en vivo e historial privado. El texto se pega donde esté el cursor, en cualquier app.</p>
+              <div class="badges"><span class="cat">Cliente</span><span class="status live">En producción</span></div>
+              <h3>Gestión para kiosco</h3>
+              <p>Sistema de gestión para un comercio minorista: control de stock, registro de ventas y seguimiento del movimiento diario, con una interfaz pensada para usarse rápido en el mostrador.</p>
             </div>
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">faster-whisper</span><span class="tag">Windows</span><span class="tag">Local-first</span>
+              <span class="tag">React</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">Stock</span>
             </div>
           </article>
-
+          <article class="project reveal" data-cat="clientes">
+            <div>
+              <div class="badges"><span class="cat">Cliente</span><span class="status live">En producción</span></div>
+              <h3>HIT SaaS &mdash; AuditPro</h3>
+              <p>Herramienta de auditoría para control de calidad: registra las evaluaciones, consolida los resultados por período y deja el historial disponible para revisión, reemplazando el seguimiento en planillas sueltas.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">SaaS</span><span class="tag">Auditoría</span><span class="tag">Web</span><span class="tag">Reporting</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="clientes">
+            <div>
+              <div class="badges"><span class="cat">Cliente</span><span class="status">Sitio publicado</span></div>
+              <h3>Portfolio &mdash; Acompañante terapéutica</h3>
+              <p>Sitio profesional para una acompañante terapéutica: presentación de servicios, formación y canal de contacto directo, con foco en carga rápida y lectura cómoda desde el celular.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span><span class="tag">Responsive</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="demos">
+            <div>
+              <div class="badges"><span class="cat">Demo pública</span><span class="status">Demo navegable</span></div>
+              <h3>App_Ads &mdash; demo pública</h3>
+              <p>Versión pública y sanitizada de la plataforma de métricas de Google y Meta Ads, con datos ficticios: sirve para recorrer la interfaz y los cortes de campaña sin exponer ninguna cuenta real.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">GitHub Pages</span><span class="tag">Datos ficticios</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="demos">
+            <div>
+              <div class="badges"><span class="cat">Demo pública</span><span class="status">Demo navegable</span></div>
+              <h3>Synapse &mdash; demo pública</h3>
+              <p>Vitrina abierta de la consola de repositorios: reproduce la red neuronal en canvas D3 y la navegación entre nodos con un set de datos de ejemplo, sin conexión a la GitHub App ni a repositorios reales.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">D3</span><span class="tag">GitHub Pages</span><span class="tag">Datos ficticios</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="demos">
+            <div>
+              <div class="badges"><span class="cat">Demo pública</span><span class="status">Demo navegable</span></div>
+              <h3>Campaign Report Demo</h3>
+              <p>Demo de reporte de campaña pensada para mostrar el formato de salida de la reportería comercial: mismos cortes y misma lectura que la versión productiva, con datos inventados.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Vercel</span><span class="tag">Datos ficticios</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="demos">
+            <div>
+              <div class="badges"><span class="cat">Demo pública</span><span class="status">Demo navegable</span></div>
+              <h3>AI Ops Dashboard</h3>
+              <p>Tablero de demostración sobre operaciones asistidas por IA: concentra estado de procesos, alertas y volumen en una sola vista para mostrar cómo se monitorea una operación automatizada.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Dashboard</span><span class="tag">Datos ficticios</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="demos">
+            <div>
+              <div class="badges"><span class="cat">Demo pública</span><span class="status">Demo navegable</span></div>
+              <h3>AI Report Studio</h3>
+              <p>Prueba de concepto de generación de reportes asistida por IA: a partir de un set de datos arma la narrativa y las visualizaciones del informe, para mostrar el patrón que después se aplica en los reportes productivos.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">IA generativa</span><span class="tag">Reporting</span>
+            </div>
+          </article>
+          <article class="project reveal" data-cat="demos">
+            <div>
+              <div class="badges"><span class="cat">Demo pública</span><span class="status">Portfolio BI</span></div>
+              <h3>Portfolio Power BI</h3>
+              <p>Colección de tableros de Power BI sobre datasets abiertos: modelado, medidas DAX y diseño de informe, la base de análisis y visualización sobre la que después se apoyan los dashboards a medida.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Modelado</span><span class="tag">Visualización</span>
+            </div>
+          </article>
           <article class="project reveal" data-cat="herramientas">
             <div>
               <div class="badges"><span class="cat">Herramienta</span><span class="status live">En producción</span></div>
@@ -1648,28 +1800,6 @@
             </div>
             <div class="tags">
               <span class="tag">HTML</span><span class="tag">GitHub Pages</span><span class="tag">Docs</span>
-            </div>
-          </article>
-
-          <article class="project secondary reveal" data-cat="agentes">
-            <div>
-              <div class="badges"><span class="cat">Agente IA</span><span class="status">Funcional · no productivo</span></div>
-              <h3>Azul — Agente de ventas WhatsApp</h3>
-              <p>Agente de primera atención para el canal de ventas de DirecTV Perú: detecta si escribe un prospecto o un cliente, lo califica y lo deriva al equipo correcto. Construido y probado de punta a punta, pero no llegó a pasar a operación productiva.</p>
-            </div>
-            <div class="tags">
-              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Claude</span><span class="tag">Botmaker</span>
-            </div>
-          </article>
-
-          <article class="project secondary reveal" data-cat="agentes">
-            <div>
-              <div class="badges"><span class="cat">Agente IA</span><span class="status">Funcional · no productivo</span></div>
-              <h3>Luna / Agentes Botmaker</h3>
-              <p>Agentes conversacionales para WhatsApp que clasifican intenciones, capturan leads y derivan al equipo correcto. Probados end-to-end sobre Botmaker, sin despliegue productivo.</p>
-            </div>
-            <div class="tags">
-              <span class="tag">Claude</span><span class="tag">Botmaker</span><span class="tag">Redis</span><span class="tag">n8n</span>
             </div>
           </article>
         </div>
